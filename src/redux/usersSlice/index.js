@@ -1,7 +1,7 @@
 import {createSlice,createAsyncThunk} from "@reduxjs/toolkit";
 
 const usersSlice = createSlice({
-    name: 'Products',
+    name: 'Users',
     initialState: [],
     reducers: {
         createPost(state, action) {
@@ -15,4 +15,4 @@ const usersSlice = createSlice({
 
 const {} = usersSlice.actions
 
-export default usersSlice
+export default usersSlice.reducer

@@ -1,5 +1,9 @@
 import './index.scss'
+import {Navbar} from "../../components";
 
-const Users =()=>(<h1>Hello User</h1>)
+const Users = () => (
+    <div>
+        <Navbar/>
+    </div>)
 
 export default Users

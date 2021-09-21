@@ -1,5 +1,6 @@
+import {memo} from "react";
 import './index.scss'
 
 const Spinner=()=> <div className="loader"/>
 
-export default Spinner
+export default memo(Spinner)

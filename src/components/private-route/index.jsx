@@ -5,12 +5,12 @@ import { useSelector } from 'react-redux'
 import { ROUTER_LOGIN } from '../../constants/routers'
 
 const PrivateRoute = ({ children, ...rest }) => {
-    const { user } = useSelector(state => state.auth)
-
+    const { isAdmin } = useSelector(state => state.admin)
+console.log('admin',isAdmin)
     return (
         <Route
             {...rest}
-            render={() => (user ? children : <Redirect to={ROUTER_LOGIN} />)}
+            render={() => (isAdmin  ? children : <Redirect to={ROUTER_LOGIN} />)}
         />
     )
 }

@@ -1,1 +1,7 @@
 @import 'src/styles/common';
+
+.navbar {
+  @include flex(space-between, center);
+  height: 8rem;
+  background: $lighterYellowColor;
+}

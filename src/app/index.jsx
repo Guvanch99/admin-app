@@ -1,22 +1,27 @@
-import {BrowserRouter as Router, Route, Switch, Redirect} from "react-router-dom";
+import {BrowserRouter as Router, Route, Switch} from "react-router-dom";
 
-import {Auth, Home, Products, Users} from '../pages'
+import {Login, Error} from '../pages'
 
-import {PrivateRoute} from "../components";
+import {Navbar, PrivateRoute} from "../components";
 
-import {ROUTER_LOGIN, ROUTER_USERS, ROUTER_PRODUCTS, ROUTER_HOME} from "../constants/routers";
+import {ROUTER_LOGIN, ROUTER_USERS, ROUTER_PRODUCTS, ROUTER_HOME, ROUTER_ERROR} from "../constants/routers";
 
 import './index.scss'
 
+
 const App = () => (
+    <main className='main'>
     <Router>
         <Switch>
-            <Route exact path={ROUTER_LOGIN} component={Auth} />
-            <PrivateRoute exact path={ROUTER_PRODUCTS} component={Products}/>
-            <PrivateRoute exact path={ROUTER_USERS} component={Users}/>
-            <PrivateRoute exact path={ROUTER_HOME} component={Home}/>
-            <Redirect to={ROUTER_HOME}/>
+            <Route exact path={ROUTER_LOGIN} component={Login}/>
+            <PrivateRoute exact path={ROUTER_PRODUCTS}/>
+            <PrivateRoute exact path={ROUTER_USERS}/>
+            <PrivateRoute exact path={ROUTER_HOME}/>
+            <Route path={ROUTER_ERROR} component={Error}/>
         </Switch>
     </Router>
+</main>
+
 )
+
 export default App

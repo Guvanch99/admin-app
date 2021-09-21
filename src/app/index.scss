@@ -1,1 +1,13 @@
 @import "src/styles/common";
+
+#root {
+  height: 100%;
+}
+
+.main{
+  max-width: 80rem;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+}

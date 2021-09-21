@@ -1,5 +1,10 @@
 import './index.scss'
+import {Navbar} from "../../components";
 
-const Products =()=>(<h1>Hello Products</h1>)
+const Products =()=>(
+    <div>
+        <Navbar/>
+    </div>
+)
 
 export default Products

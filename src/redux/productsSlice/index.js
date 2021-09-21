@@ -1,6 +1,6 @@
 import {createSlice,createAsyncThunk} from "@reduxjs/toolkit";
 
-const ProductsSlice = createSlice({
+const productsSlice = createSlice({
     name: 'Products',
     initialState: [],
     reducers: {
@@ -13,6 +13,6 @@ const ProductsSlice = createSlice({
     },
 })
 
-const {} = ProductsSlice.actions
+const {} = productsSlice.actions
 
-export default ProductsSlice
+export default productsSlice.reducer

@@ -1,0 +1,2 @@
+export const ADMIN_NAME='GUVANCH'
+export const ADMIN_PASSWORD='GUVANCH99'

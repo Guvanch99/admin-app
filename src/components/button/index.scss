@@ -1,0 +1,17 @@
+@import 'src/styles/common';
+
+.button{
+    color: $whiteColor;
+    background: $greenSuccessColor;
+    @include fontFamily($fontRoboto);
+    font-size: 2em;
+    padding: .2rem 2rem;
+    border: none;
+    cursor: pointer;
+
+    &:disabled {
+      color: $whiteColor;
+      background-color: $lighterRedColor;
+      cursor: auto;
+    }
+}

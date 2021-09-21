@@ -2,3 +2,16 @@
 @import './reset';
 @import './variables';
 @import './fonts';
+
+ul {
+  list-style: none;
+}
+a {
+  @include fontFamily($fontRoboto);
+  text-decoration: none;
+  font-size: 2em;
+  color: $secondaryColor;
+  &:hover {
+    border-bottom: 1px solid $mainColor;
+  }
+}

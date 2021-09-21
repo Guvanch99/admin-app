@@ -6,11 +6,11 @@ import { ROUTER_LOGIN } from '../../constants/routers'
 
 const PrivateRoute = ({ children, ...rest }) => {
     const { isAdmin } = useSelector(state => state.admin)
-console.log('admin',isAdmin)
+    console.log(children)
     return (
         <Route
             {...rest}
-            render={() => (isAdmin  ? children : <Redirect to={ROUTER_LOGIN} />)}
+            render={() => (true  ? children : <Redirect to={ROUTER_LOGIN} />)}
         />
     )
 }

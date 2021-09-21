@@ -1,26 +1,42 @@
-import {BrowserRouter as Router, Route, Switch} from "react-router-dom";
+import {Route, Switch} from "react-router-dom";
 
-import {Login, Error} from '../pages'
+import {Login, Error, Home, Users, Products} from '../pages'
 
-import {Navbar, PrivateRoute} from "../components";
+import {PrivateRoute} from "../components";
 
 import {ROUTER_LOGIN, ROUTER_USERS, ROUTER_PRODUCTS, ROUTER_HOME, ROUTER_ERROR} from "../constants/routers";
 
 import './index.scss'
 
+const privateRoutes = [
+    {
+        path: ROUTER_HOME,
+        children: <Home/>
+    },
+    {
+        path: ROUTER_PRODUCTS,
+        children: <Products/>
+    },
+    {
+        path: ROUTER_USERS,
+        children: <Users/>
+    }
+]
 
 const App = () => (
-    <main className='main'>
-    <Router>
+    <div className='container'>
         <Switch>
+            {
+                privateRoutes.map(({path, children}, idx) => (
+                    <PrivateRoute key={idx} exact path={path}>
+                        {children}
+                    </PrivateRoute>
+                ))
+            }
             <Route exact path={ROUTER_LOGIN} component={Login}/>
-            <PrivateRoute exact path={ROUTER_PRODUCTS}/>
-            <PrivateRoute exact path={ROUTER_USERS}/>
-            <PrivateRoute exact path={ROUTER_HOME}/>
             <Route path={ROUTER_ERROR} component={Error}/>
         </Switch>
-    </Router>
-</main>
+    </div>
 
 )
 

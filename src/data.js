@@ -1,4 +1,4 @@
-import {ROUTER_HOME, ROUTER_PRODUCTS, ROUTER_USERS} from "./constants/routers";
+import {ROUTER_HOME, ROUTER_LOGIN, ROUTER_PRODUCTS, ROUTER_USERS} from "./constants/routers";
 
 export const DATA = {
     navLinks: [
@@ -13,6 +13,10 @@ export const DATA = {
         {
             name: 'Users',
             url: ROUTER_USERS
+        },
+        {
+            name: 'LogOut',
+            url: ROUTER_LOGIN
         }
     ]
 }

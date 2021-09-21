@@ -1,5 +1,12 @@
+import {MainNavigation} from "../../components";
+
 import './index.scss'
 
-const Home=()=>(<h1>HOME</h1>)
+
+const Home = () => (
+    <>
+        <MainNavigation/>
+    </>
+)
 
 export default Home

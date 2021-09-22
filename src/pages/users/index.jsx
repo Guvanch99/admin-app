@@ -1,4 +1,4 @@
-import './index.scss'
+import './index.styled'
 
 const Users = () => (
     <div>

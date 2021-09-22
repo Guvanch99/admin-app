@@ -1,5 +1,5 @@
 import {memo} from "react";
-import './index.scss'
+import './index.styled'
 
 const Spinner=()=> <div className="loader"/>
 

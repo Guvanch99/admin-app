@@ -1,15 +1,15 @@
 import classNames from 'classnames'
 import PropTypes from 'prop-types'
 
-import './index.scss'
+import {Container,Label,Input,Error} from "./index.styled";
 
-const Input = ({name, value, label, error, type, onChange, required, handleBlur, disabled}) => (
-    <div className="input-container">
-        <label htmlFor={name} className="input-container__label">
+const CustomInput = ({name, value, label, error, type, onChange, required, handleBlur, disabled}) => (
+    <Container>
+        <Label htmlFor={name}>
             {label}
-        </label>
-        <input
-            className={classNames('input-container__input', {error})}
+        </Label>
+        <Input
+            layout={error}
             type={type}
             name={name}
             value={value}
@@ -22,13 +22,13 @@ const Input = ({name, value, label, error, type, onChange, required, handleBlur,
             disabled={disabled}
         />
 
-        {error ? <span className="input-container__error">{error}</span> : null}
-    </div>
+        {error ? <Error className="input-container__error">{error}</Error> : null}
+    </Container>
 )
 
-export default Input
+export default CustomInput
 
-Input.propTypes = {
+CustomInput.propTypes = {
     name: PropTypes.string.isRequired,
     value: PropTypes.string.isRequired,
     onChange: PropTypes.func.isRequired,

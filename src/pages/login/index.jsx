@@ -2,16 +2,16 @@ import {useMemo, useState} from "react";
 import {useHistory} from "react-router-dom";
 import {useSelector, useDispatch} from 'react-redux'
 
-import {Input} from '../../components'
+import {CustomInput,CustomButton} from '../../components'
 
 import {loginAdmin, adminError} from "../../redux/adminSlice";
 
-import './index.scss'
-import Button from "../../components/button";
 import {ROUTER_HOME} from "../../constants/routers";
 import {ADMIN_NAME, ADMIN_PASSWORD} from "../../constants/variables";
+
 import {upperCaseString} from "../../utils";
 
+import {Container,Form,Error,AuthText} from "./index.styled";
 
 const Login = () => {
     const [adminLogin, setAdminLogin] = useState({
@@ -85,15 +85,15 @@ const Login = () => {
     }
 
     return (
-        <div className='login'>
-            <form className="login__form">
-                <h1 className='login__form-auth'>Authorization</h1>
+        <Container>
+            <Form>
+                <AuthText>Authorization</AuthText>
                 {adminNotFound ? (
-                    <h1 className="login__form-error">Invalid adminName or password</h1>
+                    <Error>Invalid adminName or password</Error>
                 ) : null}
                 {LOGIN_DATA.map(
                     ({name, value, label, error, type, functionValidation}, index) => (
-                        <Input
+                        <CustomInput
                             key={index}
                             name={name}
                             value={value}
@@ -106,9 +106,9 @@ const Login = () => {
                         />
                     )
                 )}
-                <Button onclick={login} name='Submit' disabled={isButtonDisabled} type='submit'/>
-            </form>
-        </div>
+                <CustomButton onclick={login} name='Submit' disabled={isButtonDisabled} type='submit'/>
+            </Form>
+        </Container>
     )
 }
 

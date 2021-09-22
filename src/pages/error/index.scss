@@ -1,9 +1,0 @@
-@import "src/styles/common";
-
-.error-text {
-  @include flex(center, center);
-  @include fontFamily($fontRoboto);
-  flex: 1;
-  font-size: 8em;
-  color: $lighterRedColor;
-}

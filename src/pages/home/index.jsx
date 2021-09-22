@@ -1,12 +1,20 @@
+import {useEffect} from "react";
+import {useDispatch} from "react-redux";
+
 import {MainNavigation} from "../../components";
 
-import './index.scss'
+import {getData} from "../../redux/crudSlice";
 
+const Home = () => {
+    const dispatch = useDispatch()
 
-const Home = () => (
-    <>
+    useEffect(() => {
+        dispatch(getData())
+    }, [dispatch])
+
+    return (
         <MainNavigation/>
-    </>
-)
+    )
+}
 
 export default Home

@@ -1,9 +1,7 @@
 import adminReducer from "./adminSlice";
-import usersReducer from "./usersSlice";
-import productsReducer from "./productsSlice";
+import crudSlice from './crudSlice'
 
 export const reducer = {
     admin: adminReducer,
-    users: usersReducer,
-    products: productsReducer
+    crud:crudSlice
 }

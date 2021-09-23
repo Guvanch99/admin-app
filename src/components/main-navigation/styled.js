@@ -19,9 +19,11 @@ export const List = styled.li`
   margin: 1rem;
   border-radius: 5%;
   background: ${({color}) => color.background};
-  box-shadow: 7px 15px 20px 2px rgba(${({theme}) => theme.colors.secondaryColor}, .62);
-  -webkit-box-shadow: 7px 15px 20px 2px rgba(${({theme}) => theme.colors.secondaryColor}, .62);
-  -moz-box-shadow: 7px 15px 20px 2px rgba(${({theme}) => theme.colors.secondaryColor}, .62);
+  transition: transform .4s ease-in-out;
+  
+  &:hover {
+    transform: scale(1.1);
+  }
 `
 export const Link = styled(NavLink)`
   ${grid({justify: 'center', align: "center"})};

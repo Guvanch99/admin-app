@@ -35,5 +35,5 @@ export const DATA = {
         },
 
     ],
-    tableHeaderRow:["Name","Edit","Delete"]
+    tableHeaderRow:["ID","Name","Edit","Delete"]
 }

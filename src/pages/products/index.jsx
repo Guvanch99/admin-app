@@ -1,12 +1,14 @@
 import {useSelector} from "react-redux";
 
-import {CustomTable} from "../../components";
+import {CustomTable, PageBack} from "../../components";
 
-const Products =()=>{
-    const {products}=useSelector(state=>state.crud)
-    console.log(products)
-    return(
-     <CustomTable data={products}/>
+const Products = () => {
+    const {products} = useSelector(state => state.crud)
+    return (
+        <div>
+            <PageBack/>
+            <CustomTable data={products}/>
+        </div>
     )
 }
 

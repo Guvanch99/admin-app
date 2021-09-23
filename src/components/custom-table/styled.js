@@ -1,9 +1,11 @@
 import styled from "styled-components";
 
-export const Table =styled.table`
+export const Table = styled.table`
+  max-width: 40rem;
   font-size: 2em;
   text-align: center;
   border-collapse: collapse;
-  margin: 2rem 0;
-  color: ${({theme})=>theme.colors.whiteColor};
+  margin: 4rem auto;
+  color: ${({theme}) => theme.colors.whiteColor};
+
 `

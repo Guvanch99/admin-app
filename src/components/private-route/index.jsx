@@ -6,7 +6,6 @@ import { ROUTER_LOGIN } from '../../constants/routers'
 
 const PrivateRoute = ({ children, ...rest }) => {
     const { isAdmin } = useSelector(state => state.admin)
-    console.log(children)
     return (
         <Route
             {...rest}

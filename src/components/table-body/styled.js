@@ -8,7 +8,10 @@ export const Icon = styled.i`
 `
 
 export const TableBodyRowContainer = styled.div`
-  ${grid({justify:'space-around',align:'center'})};
- grid-template-columns: repeat(3,1fr);
-  
+  ${grid({justify: 'center', align: 'center'})};
+  grid-template-columns: repeat(4, 1fr);
+
+  &:nth-child(even) {
+    background: ${({theme}) => theme.colors.purpleColor};
+  }
 `

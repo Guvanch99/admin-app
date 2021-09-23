@@ -1,4 +1,7 @@
+import {memo} from "react";
+
 import {DATA} from "../../data"
+
 import * as S from "./styled"
 
 const {tableHeaderRow} = DATA
@@ -11,4 +14,4 @@ const TableHeader = () => (
     </thead>
 )
 
-export default TableHeader
+export default memo(TableHeader)

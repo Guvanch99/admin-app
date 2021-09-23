@@ -1,5 +1,17 @@
+import {useSelector} from "react-redux";
+import {CustomTable, PageBack} from "../../components";
+
 import * as S from "./styled"
 
-const Gallery=()=><h1>Hello Gallery</h1>
+const Gallery = () => {
+    const {gallery} = useSelector(state => state.crud)
+    console.log(gallery)
+    return (
+        <div>
+            <PageBack/>
+            <CustomTable data={gallery}/>
+        </div>
+    )
+}
 
 export default Gallery

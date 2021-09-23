@@ -45,9 +45,9 @@ const CrudSlice = createSlice({
             state.status = false
             state.error = false
             state.products = action.payload[0].data
-            state.featuredProducts = action.payload[3].data
+            state.featuredProducts = action.payload[1].data
             state.users = action.payload[2].data
-            state.gallery = action.payload[1].data
+            state.gallery = action.payload[3].data
         },
         [getData.rejected]:
             (state) => {

@@ -15,9 +15,10 @@ const TableBody = ({data}) => {
         <tbody>
         <tr>
             {
-                data.map(({name}, idx) => (
+                data.map(({id,name,alt,userName}, idx) => (
                     <S.TableBodyRowContainer key={idx}>
-                        <td>{name}</td>
+                        <td>{id}</td>
+                        <td>{name} {alt} {userName}</td>
                         <td>
                             <CustomButton bg onclick={handleEdit}>
                                 <S.Icon color='green' className='fas fa-edit'/>

@@ -8,7 +8,6 @@ export const Container = styled.div`
 `
 export const Form = styled.form`
   ${grid({justify:'center',align:"center"})};
-  flex-direction: column;
   padding: 5rem;
   background: rgba(80, 227, 194, .25);
   box-shadow: 0 8px 32px 0 rgba(31, 38, 135, .37);

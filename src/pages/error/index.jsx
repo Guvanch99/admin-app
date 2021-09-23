@@ -1,9 +1,9 @@
-import {memo, useEffect} from "react";
-import {useHistory} from "react-router-dom";
+import {memo, useEffect} from "react"
+import {useHistory} from "react-router-dom"
 
-import {ROUTER_HOME} from "../../constants/routers";
+import {ROUTER_HOME} from "../../constants/routers"
 
-import {ErrorText} from './index.styled'
+import * as S from "./styled"
 
 
 const Error = () => {
@@ -14,7 +14,7 @@ const Error = () => {
         }, 2000)
     }, [])
     return (
-        <ErrorText>Oops something get wrong</ErrorText>
+        <S.ErrorText>Oops something get wrong</S.ErrorText>
     )
 }
 

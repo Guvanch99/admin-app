@@ -1,17 +1,17 @@
-import {useMemo, useState} from "react";
-import {useHistory} from "react-router-dom";
+import {useMemo, useState} from "react"
+import {useHistory} from "react-router-dom"
 import {useSelector, useDispatch} from 'react-redux'
 
 import {CustomInput,CustomButton} from '../../components'
 
-import {loginAdmin, adminError} from "../../redux/adminSlice";
+import {loginAdmin, adminError} from "../../redux/adminSlice"
 
-import {ROUTER_HOME} from "../../constants/routers";
-import {ADMIN_NAME, ADMIN_PASSWORD} from "../../constants/variables";
+import {ROUTER_HOME} from "../../constants/routers"
+import {ADMIN_NAME, ADMIN_PASSWORD} from "../../constants/variables"
 
-import {upperCaseString} from "../../utils";
+import {upperCaseString} from "../../utils"
 
-import {Container,Form,Error,AuthText} from "./index.styled";
+import * as S from "./styled"
 
 const Login = () => {
     const [adminLogin, setAdminLogin] = useState({
@@ -85,11 +85,11 @@ const Login = () => {
     }
 
     return (
-        <Container>
-            <Form>
-                <AuthText>Authorization</AuthText>
+        <S.Container>
+            <S.Form>
+                <S.AuthText>Authorization</S.AuthText>
                 {adminNotFound ? (
-                    <Error>Invalid adminName or password</Error>
+                    <S.Error>Invalid adminName or password</S.Error>
                 ) : null}
                 {LOGIN_DATA.map(
                     ({name, value, label, error, type, functionValidation}, index) => (
@@ -107,8 +107,8 @@ const Login = () => {
                     )
                 )}
                 <CustomButton onclick={login} name='Submit' disabled={isButtonDisabled} type='submit'/>
-            </Form>
-        </Container>
+            </S.Form>
+        </S.Container>
     )
 }
 

@@ -1,9 +1,9 @@
-import {Route, Switch} from "react-router-dom";
-import {ThemeProvider} from "styled-components";
+import {Route, Switch} from "react-router-dom"
+import {ThemeProvider} from "styled-components"
 
 import {Login, Error, Home, Users, Products, Gallery, FeaturedProducts} from '../pages'
 
-import {PrivateRoute} from "../components";
+import {PrivateRoute} from "../components"
 
 import {
     ROUTER_LOGIN,
@@ -16,7 +16,8 @@ import {
 
 import {theme} from "../styles/Theme.styled";
 import {GlobalStyles} from "../styles/Global.styled";
-import {Container} from "./index.styled";
+
+import * as S from "./styled";
 
 const privateRoutes = [
     {
@@ -45,7 +46,7 @@ const privateRoutes = [
 const App = () => (
     <ThemeProvider theme={theme}>
         <GlobalStyles/>
-        <Container>
+        <S.Container>
             <Switch>
                 {
                     privateRoutes.map(({path, children}, idx) => (
@@ -57,7 +58,7 @@ const App = () => (
                 <Route exact path={ROUTER_LOGIN} component={Login}/>
                 <Route path={ROUTER_ERROR} component={Error}/>
             </Switch>
-        </Container>
+        </S.Container>
     </ThemeProvider>
 
 )

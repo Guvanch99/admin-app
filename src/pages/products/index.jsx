@@ -1,12 +1,12 @@
 import {useSelector} from "react-redux";
 
-import './index.styled'
+import {CustomTable} from "../../components";
 
 const Products =()=>{
     const {products}=useSelector(state=>state.crud)
     console.log(products)
     return(
-     <h1>Hello</h1>
+     <CustomTable data={products}/>
     )
 }
 

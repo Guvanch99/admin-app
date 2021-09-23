@@ -1,11 +1,11 @@
-import {memo} from "react";
-import {useDispatch} from "react-redux";
+import {memo} from "react"
+import {useDispatch} from "react-redux"
 
-import {logOut} from "../../redux/adminSlice";
+import {logOut} from "../../redux/adminSlice"
 
 import {DATA} from '../../data'
 
-import {Menu, List, Link} from "./index.styled";
+import * as S from "./styled"
 
 const {navLinks} = DATA
 
@@ -14,13 +14,13 @@ const MainNavigation = () => {
     const logOutAdmin = () => dispatch(logOut())
 
     return (
-        <Menu>
+        <S.Menu>
             {
                 navLinks.map(({name, url, color}, idx) => (
-                    <List style={{background: color}} key={idx}><Link onClick={idx === 3 ? logOutAdmin : null} to={url}>{name}</Link></List>
+                    <S.List color={{background:color}} key={idx}><S.Link onClick={idx === 3 ? logOutAdmin : null} to={url}>{name}</S.Link></S.List>
                 ))
             }
-        </Menu>
+        </S.Menu>
     )
 }
 

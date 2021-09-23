@@ -1,4 +1,4 @@
-import './index.styled'
+import * as S from "./styled"
 
 const FeaturedProducts=()=><h1>Hello FeaturedProducts</h1>
 

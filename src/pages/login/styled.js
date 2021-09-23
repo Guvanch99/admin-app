@@ -1,15 +1,13 @@
 import styled from "styled-components";
 
+import {grid} from "../../styles/mixin.styled";
+
 export const Container = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  ${grid({justify:'center',align:"center"})};
   height: 100vh;
 `
 export const Form = styled.form`
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  ${grid({justify:'center',align:"center"})};
   flex-direction: column;
   padding: 5rem;
   background: rgba(80, 227, 194, .25);

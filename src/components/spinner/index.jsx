@@ -1,6 +1,7 @@
-import {memo} from "react";
-import './index.styled'
+import {memo} from "react"
 
-const Spinner=()=> <div className="loader"/>
+import * as S from "./styled"
+
+const Spinner=()=> <S.Loader />
 
 export default memo(Spinner)

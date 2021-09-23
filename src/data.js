@@ -34,5 +34,6 @@ export const DATA = {
             color:' #cf1717'
         },
 
-    ]
+    ],
+    tableHeaderRow:["Name","Edit","Delete"]
 }

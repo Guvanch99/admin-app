@@ -10,10 +10,11 @@ const Spin = keyframes`
   }
 `
 export const Loader = styled.div`
+  margin: 0 auto;
   border: 16px solid ${({theme}) => theme.colors.lighterGrayColor};
-  border-top: 16px solid ${({theme}) => theme.colors.blueColor}; 
+  border-top: 16px solid ${({theme}) => theme.colors.blueColor};
   border-radius: 50%;
-  width: 120px;
-  height: 120px;
+  width: 8rem;
+  height: 8rem;
   animation: ${Spin} 2s linear infinite;
 `

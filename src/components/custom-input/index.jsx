@@ -1,14 +1,13 @@
-import classNames from 'classnames'
 import PropTypes from 'prop-types'
 
-import {Container,Label,Input,Error} from "./index.styled";
+import * as S from "./styled"
 
 const CustomInput = ({name, value, label, error, type, onChange, required, handleBlur, disabled}) => (
-    <Container>
-        <Label htmlFor={name}>
+    <S.Container>
+        <S.Label htmlFor={name}>
             {label}
-        </Label>
-        <Input
+        </S.Label>
+        <S.Input
             layout={error}
             type={type}
             name={name}
@@ -22,8 +21,8 @@ const CustomInput = ({name, value, label, error, type, onChange, required, handl
             disabled={disabled}
         />
 
-        {error ? <Error className="input-container__error">{error}</Error> : null}
-    </Container>
+        {error ? <S.Error className="input-container__error">{error}</S.Error> : null}
+    </S.Container>
 )
 
 export default CustomInput

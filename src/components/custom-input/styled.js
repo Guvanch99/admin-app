@@ -1,10 +1,9 @@
 import styled from "styled-components";
 
+import {grid} from "../../styles/mixin.styled";
+
 export const Container = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
+  ${grid({justify:'center',align:"center"})};
   margin: 1rem 0;
   color: ${({theme}) => theme.colors.whiteColor};
 `

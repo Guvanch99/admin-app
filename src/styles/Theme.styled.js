@@ -1,5 +1,3 @@
-
-
 export const theme = {
     colors: {
         secondaryColor: 'rgb(10, 10, 10)',
@@ -11,9 +9,9 @@ export const theme = {
         greenSuccessColor: '#28a745',
         darkGreen: '#1d3c45',
         lighterYellowColor: 'rgba(238, 238, 0, 1)',
-        blueColor:'#3498db'
+        blueColor: '#3498db'
     },
-    netbook:'61em',
-    tablet:'48em',
-    mobile:'30em'
+    netbook: '61em',
+    tablet: '48em',
+    mobile: '30em'
 }

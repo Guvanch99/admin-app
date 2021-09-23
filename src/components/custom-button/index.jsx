@@ -1,9 +1,9 @@
-import PropTypes from "prop-types";
+import PropTypes from "prop-types"
 
-import {Button} from "./index.styled";
+import * as S from "./styled"
 
-const CustomButton = ({name, onclick, type, disabled}) =>
-    <Button disabled={disabled} onClick={onclick} type={type}>{name}</Button>
+const CustomButton = ({name, onclick, type, disabled, children, bg}) =>
+    <S.Button bg={bg} disabled={disabled} onClick={onclick} type={type}>{name} {children}</S.Button>
 
 
 export default CustomButton
@@ -13,8 +13,11 @@ CustomButton.defaultProps = {
 }
 
 CustomButton.propTypes = {
-    name: PropTypes.string.isRequired,
+    name: PropTypes.string,
     onclick: PropTypes.func.isRequired,
     type: PropTypes.string,
     disabled: PropTypes.string,
+    children: PropTypes.node,
+    bg:PropTypes.bool
+
 }

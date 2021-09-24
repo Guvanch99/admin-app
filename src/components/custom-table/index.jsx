@@ -4,10 +4,10 @@ import {TableBody, TableHeader} from "../index"
 
 import * as S from "./styled"
 
-const CustomTable = ({data}) => (
+const CustomTable = ({data,deleteHandler}) => (
     <S.Table>
         <TableHeader/>
-        <TableBody data={data}/>
+        <TableBody data={data} deleteHandler={deleteHandler}/>
     </S.Table>
 )
 

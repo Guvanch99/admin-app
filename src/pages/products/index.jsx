@@ -4,6 +4,7 @@ import {CustomTable, PageBack} from "../../components";
 
 const Products = () => {
     const {products} = useSelector(state => state.crud)
+
     return (
         <div>
             <PageBack/>

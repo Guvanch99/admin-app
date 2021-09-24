@@ -12,7 +12,8 @@ const Error = () => {
         setTimeout(() => {
             history.push(ROUTER_HOME)
         }, 2000)
-    }, [])
+    }, [history])
+
     return (
         <S.ErrorText>Oops something get wrong</S.ErrorText>
     )

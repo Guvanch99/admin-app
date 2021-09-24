@@ -1,7 +1,7 @@
 import {Route, Switch} from "react-router-dom"
 import {ThemeProvider} from "styled-components"
 
-import {Login, Error, Home, Users, Products, Gallery, FeaturedProducts} from '../pages'
+import {Login, Error, Home, Users, Products, Gallery, FeaturedProducts, DataEdit} from '../pages'
 
 import {PrivateRoute} from "../components"
 
@@ -11,7 +11,7 @@ import {
     ROUTER_PRODUCTS,
     ROUTER_HOME,
     ROUTER_ERROR,
-    ROUTER_FEATURED_PRODUCTS, ROUTER_GALLERY
+    ROUTER_FEATURED_PRODUCTS, ROUTER_GALLERY, ROUTER_DATA_EDIT
 } from "../constants/routers";
 
 import {theme} from "../styles/Theme.styled";
@@ -39,6 +39,10 @@ const privateRoutes = [
     {
         path: ROUTER_GALLERY,
         children: <Gallery/>
+    },
+    {
+        path: ROUTER_DATA_EDIT,
+        children: <DataEdit/>
     }
 
 ]

@@ -75,8 +75,6 @@ const Login = () => {
         e.preventDefault()
         const adminNameUpperCase = upperCaseString(adminName)
         const passwordUpperCase = upperCaseString(password)
-        console.log('adminNameUpperCase',adminNameUpperCase)
-        console.log("passwordUpperCase",passwordUpperCase)
         if (adminNameUpperCase === ADMIN_NAME && passwordUpperCase === ADMIN_PASSWORD) {
             dispatch(loginAdmin())
             history.push(ROUTER_HOME)

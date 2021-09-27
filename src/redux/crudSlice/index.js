@@ -21,9 +21,13 @@ export const deleteItem = createAsyncThunk(
     async ({id, url}, {dispatch}) => {
         await DB.delete(`${url}/${id}`)
         dispatch(deleteData({id, url}))
-
     }
 )
+
+export const updateSingleData = (id, url, updatedData) => {
+    DB.patch(`${url}/${id}`, updatedData)
+}
+
 
 const CrudSlice = createSlice({
     name: 'crud',
@@ -33,29 +37,24 @@ const CrudSlice = createSlice({
         featuredProducts: [],
         gallery: [],
         status: false,
-        error: false
-
+        error: false,
+        isModal: false
     },
     reducers: {
-        createPost(state, action) {
-        },
-        updatePost(state, action) {
 
-        },
-        deleteData(state, action) {
-            console.log("action",action)
-            switch (action.payload.url) {
+        deleteData(state, {payload}) {
+            switch (payload.url) {
                 case USERS:
-                    state.users = [state.users[0], state.users[1].filter(user => user.id !== action.payload.id)]
+                    state.users = [state.users[0], state.users[1].filter(user => user.id !== payload.id)]
                     break
                 case GALLERY:
-                    state.gallery = [state.gallery[0], state.gallery[1].filter(gallery => gallery.id !== action.payload.id)]
+                    state.gallery = [state.gallery[0], state.gallery[1].filter(gallery => gallery.id !== payload.id)]
                     break
                 case ALL_PRODUCTS:
-                    state.products = [state.products[0], state.products[1].filter(product => product.id !== action.payload.id)]
+                    state.products = [state.products[0], state.products[1].filter(product => product.id !== payload.id)]
                     break
                 case FEATURED_PRODUCTS:
-                    state.featuredProducts = [state.featuredProducts[0], state.featuredProducts[1].filter(featuredProduct => featuredProduct.id !== action.payload.id)]
+                    state.featuredProducts = [state.featuredProducts[0], state.featuredProducts[1].filter(featuredProduct => featuredProduct.id !== payload.id)]
                     break
                 default:
                     return state
@@ -67,24 +66,21 @@ const CrudSlice = createSlice({
             state.status = true
             state.error = false
         },
-        [getData.fulfilled]: (state, action) => {
+        [getData.fulfilled]: (state, {payload}) => {
             state.status = false
             state.error = false
-            console.log(action)
-            state.products = [action.payload[0].config.url, action.payload[0].data]
-            state.featuredProducts = [action.payload[1].config.url, action.payload[1].data]
-            state.users = [action.payload[2].config.url, action.payload[2].data]
-            state.gallery = [action.payload[3].config.url, action.payload[3].data]
+            state.products = [payload[0].config.url, payload[0].data]
+            state.featuredProducts = [payload[1].config.url, payload[1].data]
+            state.users = [payload[2].config.url, payload[2].data]
+            state.gallery = [payload[3].config.url, payload[3].data]
         },
-        [getData.rejected]:
-            (state) => {
-                state.error = true
-                state.status = false
-            }
-
+        [getData.rejected]: (state) => {
+            state.error = true
+            state.status = false
+        }
     }
 })
 
-const {deleteData} = CrudSlice.actions
+export const {deleteData} = CrudSlice.actions
 
 export default CrudSlice.reducer

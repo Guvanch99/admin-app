@@ -2,12 +2,13 @@ import PropTypes from 'prop-types'
 
 import * as S from "./styled"
 
-const CustomInput = ({name, value, label, error, type, onChange, required, handleBlur, disabled}) => (
+const CustomInput = ({name, value, label, error, type, onChange, required, handleBlur, disabled,bg}) => (
     <S.Container>
         <S.Label htmlFor={name}>
             {label}
         </S.Label>
         <S.Input
+            bg={bg}
             layout={error}
             type={type}
             name={name}

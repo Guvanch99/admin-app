@@ -8,9 +8,11 @@ export const theme = {
         lighterGrayColor: '#f5f5f5',
         greenSuccessColor: '#28a745',
         darkGreen: '#1d3c45',
+        lightGreen:'rgb(194, 245, 204)',
         lighterYellowColor: 'rgba(238, 238, 0, 1)',
         blueColor: '#3498db',
-        purpleColor:'rgb(71, 95, 89)'
+        plantColor:'rgb(71, 95, 89)',
+        orangeColor:'#ffa500'
     },
     netbook: '64em',
     tablet: '48em',

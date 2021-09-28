@@ -5,7 +5,6 @@ import {CustomButton} from "../../index";
 
 import * as S from '../styled'
 
-
 const ModalSuccess=({closeModalSuccess})=>{
 
     return(

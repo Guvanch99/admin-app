@@ -6,7 +6,7 @@ import * as S from "./styled"
 
 const CustomTable = ({data,deleteHandler}) => (
     <S.Table>
-        <TableHeader/>
+        <TableHeader url={data[0]}/>
         <TableBody data={data} deleteHandler={deleteHandler}/>
     </S.Table>
 )

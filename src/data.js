@@ -39,5 +39,8 @@ export const DATA = {
             color:' #cf1717'
         }
     ],
-    tableHeaderRow:["ID","Name","Add","Edit","Delete"]
+
+    tableHeaderRow:["ID","Name","Edit","Delete"],
+
+    selectOptionType:['combo','doner','beverage']
 }

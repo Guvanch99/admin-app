@@ -16,16 +16,10 @@ const adminSlice = createSlice({
         },
         logOut(state) {
             state.isAdmin = false
-        },
-        toggleModal(state) {
-            state.isModal = !state.isModal
         }
-
-
-
     },
 })
 
-export const {loginAdmin, logOut, adminError,toggleModal} = adminSlice.actions
+export const {loginAdmin, logOut, adminError} = adminSlice.actions
 
 export default adminSlice.reducer

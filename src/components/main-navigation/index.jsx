@@ -11,6 +11,7 @@ const {navLinks} = DATA
 
 const MainNavigation = () => {
     const dispatch = useDispatch()
+
     const logOutAdmin = () => dispatch(logOut())
 
     return (

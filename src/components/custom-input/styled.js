@@ -9,6 +9,7 @@ export const Container = styled.div`
   margin: 1rem 0;
   color: ${({theme}) => theme.colors.whiteColor};
 `
+
 export const Label = styled.label`
   font-size: 1.5em;
   margin-right: .4rem;
@@ -33,6 +34,7 @@ export const Input = styled.input`
 
   &:focus {
     border-bottom: 1px solid ${({theme}) => theme.colors.mainColor};
+    background-color: ${({theme}) => theme.colors.whiteColor};
   }
 `
 

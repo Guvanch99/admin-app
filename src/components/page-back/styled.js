@@ -12,6 +12,7 @@ const baseStyle = css`
   }
 ;
 `
+
 export const Button = styled.button`
   color: ${({theme}) => theme.colors.mainColor};
   position: fixed;
@@ -24,6 +25,7 @@ export const Button = styled.button`
     margin: 2rem auto;
   };
 `
+
 export const Icon = styled.i`
   ${baseStyle};
   margin: 0 1rem;

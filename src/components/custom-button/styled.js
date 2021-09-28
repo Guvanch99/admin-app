@@ -9,8 +9,7 @@ export const Button = styled.button`
   border: none;
   cursor: pointer;
   border-radius: 5%;
-
-
+  
   &:disabled {
     color: ${({theme}) => theme.colors.whiteColor};
     background: ${({theme}) => theme.colors.lighterRedColor};

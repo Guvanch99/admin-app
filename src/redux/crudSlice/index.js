@@ -1,18 +1,18 @@
-import {createSlice, createAsyncThunk, current} from "@reduxjs/toolkit";
+import {createSlice, createAsyncThunk} from "@reduxjs/toolkit";
 import axios from "axios";
 
 import {DB} from "../../core/axios";
 
-import {ALL_PRODUCTS, FEATURED_PRODUCTS, GALLERY, USERS} from "../../constants/variables";
+import {ALL_PRODUCTS, FEATURED_PRODUCTS, GALLERY, PRICE, USERS} from "../../constants/variables";
 
 export const getData = createAsyncThunk(
     'crud/getProducts',
     async () =>
         await axios.all([
-            DB('/all-products'),
-            DB('/featured-products'),
-            DB('/users'),
-            DB('/gallery')
+            DB(ALL_PRODUCTS),
+            DB(FEATURED_PRODUCTS),
+            DB(USERS),
+            DB(GALLERY)
         ])
 )
 
@@ -26,7 +26,7 @@ export const deleteItem = createAsyncThunk(
 
 export const updateSingleData = (id, url, updatedData) => {
 
-    const isPrice = updatedData.hasOwnProperty('price')
+    const isPrice = updatedData.hasOwnProperty(PRICE)
     isPrice ? DB.patch(`${url}/${id}`, {
         ...updatedData,
         price: Number(updatedData.price)

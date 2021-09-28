@@ -1,10 +1,11 @@
 import {useEffect} from "react"
 import {useDispatch, useSelector} from "react-redux"
 
+import {Error} from "../"
+
 import {MainNavigation, Spinner} from "../../components"
 
 import {getData} from "../../redux/crudSlice"
-import {Error} from "../"
 
 import * as S from "./styled";
 
@@ -16,6 +17,7 @@ const Home = () => {
     }, [dispatch])
 
     const {status, error} = useSelector(state => state.crud)
+
     return (
         <S.Container>
             {status ? <Spinner/> : <MainNavigation/>}

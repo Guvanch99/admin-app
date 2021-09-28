@@ -1,6 +1,5 @@
 import styled, {keyframes} from "styled-components";
 
-
 const Spin = keyframes`
   0% {
     transform: rotate(0deg);
@@ -9,6 +8,7 @@ const Spin = keyframes`
     transform: rotate(360deg);
   }
 `
+
 export const Loader = styled.div`
   margin: 0 auto;
   border: 16px solid ${({theme}) => theme.colors.lighterGrayColor};

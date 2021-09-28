@@ -1,6 +1,6 @@
 import styled, {css} from "styled-components";
+
 import {grid} from "../../styles/mixin.styled";
-import {flex} from "../../styles/flex.styled";
 
 export const FormEdit = styled.form`
   display: grid;
@@ -26,4 +26,13 @@ export const ButtonContainer = styled.div`
     }
   }
   }
+`
+export const Select = styled.select`
+  display: inline;
+  border-color: transparent;
+  font-size: 1.6em;
+  text-transform: capitalize;
+  padding: .25rem .5rem;
+  width: 10rem;
+  margin: 1rem 0;
 `

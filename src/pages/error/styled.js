@@ -8,3 +8,4 @@ display: flex;
   font-size: 8em;
   color: ${({theme})=>theme.colors.lighterRedColor};
 `
+

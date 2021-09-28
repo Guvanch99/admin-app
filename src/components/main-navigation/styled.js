@@ -25,6 +25,7 @@ export const List = styled.li`
     transform: scale(1.1);
   }
 `
+
 export const Link = styled(NavLink)`
   ${grid({justify: 'center', align: "center"})};
   width: 10rem;
@@ -33,6 +34,7 @@ export const Link = styled(NavLink)`
   color: ${({theme}) => theme.colors.whiteColor};
   font-size: 1.8em;
 `
+
 
 
 

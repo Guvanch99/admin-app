@@ -1,16 +1,18 @@
 import {useEffect, useState} from "react";
 import {useLocation, useHistory} from "react-router-dom";
 
-import {CustomButton, CustomInput, ModalPreview, Spinner, Portal, ModalSuccess, PageBack} from "../../components";
+import {CustomButton, CustomInput, ModalPreview, Spinner, Portal, ModalSuccess, PageBack} from "../../../components";
 
-import {updateSingleData} from "../../redux/crudSlice";
+import {updateSingleData} from "../../../redux/crudSlice";
 
-import {isObjectEmpty, isObjectValueEmpty} from "../../utils";
+import {isObjectEmpty, isObjectValueEmpty} from "../../../utils";
 
-import {getSingleData} from "../../services/getSingleData";
+import {getSingleData} from "../../../services/getSingleData";
 
-import * as S from './styled'
-import {ROUTER_DATA_EDIT} from "../../constants/routers";
+import {ROUTER_DATA_EDIT} from "../../../constants/routers";
+
+import * as S from '../styled'
+
 
 const DataEdit = () => {
     const location = useLocation()
@@ -43,7 +45,7 @@ const DataEdit = () => {
         <CustomInput key={idx} bg='orangeColor' label={key} disabled={key === 'id'}
                      type='text' autoComplete='off'
                      name={key}
-                     value={singleData[key]} placeholder={`Enter a ${singleData[key]}`} onChange={handleChange}/>
+                     value={singleData[key]} placeholder={`Enter a ${key}`} onChange={handleChange}/>
     )
 
     return (
@@ -65,7 +67,6 @@ const DataEdit = () => {
                         {singleData.src ? <CustomButton bg onclick={toggleModalPreview} name='Preview'/> : null}
                     </S.ButtonContainer>
                 </S.FormEdit>
-
             }
         </>
     )

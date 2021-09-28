@@ -23,6 +23,7 @@ export const Modal = styled.div`
   position: absolute;
   z-index: 99999;
 `
+
 export const FlexContainer = styled.div`
   display: flex;
   justify-content: space-evenly;
@@ -77,4 +78,5 @@ export const Icon = styled.i`
   font-size: 6em;
   color: ${({theme}) => theme.colors.greenSuccessColor};
 `
+
 

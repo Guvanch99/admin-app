@@ -6,6 +6,7 @@ export const Container = styled.div`
   ${grid({justify:'center',align:"center"})};
   height: 100vh;
 `
+
 export const Form = styled.form`
   ${grid({justify:'center',align:"center"})};
   padding: 5rem;
@@ -16,11 +17,13 @@ export const Form = styled.form`
   border-radius: 10px;
   border: 1px solid rgba(255, 255, 255, .18);
 `
+
 export const AuthText = styled.h1`
   margin-bottom: 3rem;
   font-size: 4em;
   color: ${({theme})=>theme.colors.whiteColor};
 `
+
 export const Error = styled.h1`
 
   font-size: 2em;
@@ -28,3 +31,4 @@ export const Error = styled.h1`
   text-align: center;
   margin: 1rem 0;
 `
+

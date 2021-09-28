@@ -1,5 +1,7 @@
-import './index.scss'
+import {memo} from "react"
 
-const Spinner=()=> <div className="loader"/>
+import * as S from "./styled"
 
-export default Spinner
+const Spinner=()=> <S.Loader />
+
+export default memo(Spinner)

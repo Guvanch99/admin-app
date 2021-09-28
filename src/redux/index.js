@@ -1,9 +1,7 @@
-import dbSlice from "./dbSlice";
-import productsSlice from "./productsSlice";
-import usersSlice from "./usersSlice";
+import adminReducer from "./adminSlice";
+import crudSlice from './crudSlice'
 
-export const rootReducers={
-    db:dbSlice,
-    users:usersSlice,
-    products:productsSlice
+export const reducer = {
+    admin: adminReducer,
+    crud:crudSlice
 }

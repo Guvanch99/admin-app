@@ -3,7 +3,7 @@ import axios from "axios";
 
 import {DB} from "../../core/axios";
 
-import {ALL_PRODUCTS, FEATURED_PRODUCTS, GALLERY, PRICE, USERS} from "../../constants/variables";
+import {ALL_PRODUCTS, FEATURED_PRODUCTS, GALLERY, NEXT_ID, PRICE, USERS} from "../../constants/variables";
 
 export const getData = createAsyncThunk(
     'crud/getProducts',
@@ -46,7 +46,10 @@ const CrudSlice = createSlice({
         isModal: false
     },
     reducers: {
-
+        addNewData(state, {payload: {newData}}) {
+            const product = {id: state.products[1].length + NEXT_ID, ...newData,}
+            state.products[1].push(product)
+        },
         deleteData(state, {payload}) {
             switch (payload.url) {
                 case USERS:
@@ -86,6 +89,6 @@ const CrudSlice = createSlice({
     }
 })
 
-export const {deleteData} = CrudSlice.actions
+export const {deleteData, addNewData} = CrudSlice.actions
 
 export default CrudSlice.reducer

@@ -5,3 +5,4 @@ export const USERS='/users'
 export const GALLERY='/gallery'
 export const FEATURED_PRODUCTS='/featured-products'
 export const PRICE='price'
+export const NEXT_ID=2

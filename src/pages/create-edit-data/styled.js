@@ -27,6 +27,7 @@ export const ButtonContainer = styled.div`
   }
   }
 `
+
 export const Select = styled.select`
   display: inline;
   border-color: transparent;
@@ -35,4 +36,11 @@ export const Select = styled.select`
   padding: .25rem .5rem;
   width: 10rem;
   margin: 1rem 0;
+`
+
+export const ErrorGlobal = styled.h1`
+  font-size: 2rem;
+  text-align: center;
+  color: ${({theme}) => theme.colors.lighterRedColor};
+
 `

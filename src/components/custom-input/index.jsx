@@ -2,7 +2,7 @@ import PropTypes from 'prop-types'
 
 import * as S from "./styled"
 
-const CustomInput = ({name, value, label, error, type, onChange, required, handleBlur, disabled,bg}) => (
+const CustomInput = ({name, value, label, error, type, onChange, required, handleBlur, disabled, bg}) => (
     <S.Container>
         <S.Label htmlFor={name}>
             {label}
@@ -22,7 +22,7 @@ const CustomInput = ({name, value, label, error, type, onChange, required, handl
             disabled={disabled}
         />
 
-        {error ? <S.Error className="input-container__error">{error}</S.Error> : null}
+        {error ? <S.Error>{error}</S.Error> : null}
     </S.Container>
 )
 
@@ -30,12 +30,12 @@ export default CustomInput
 
 CustomInput.propTypes = {
     name: PropTypes.string.isRequired,
-    value: PropTypes.string.isRequired,
+    value: PropTypes.string,
     onChange: PropTypes.func.isRequired,
     label: PropTypes.string.isRequired,
     type: PropTypes.string.isRequired,
     error: PropTypes.string,
     required: PropTypes.bool,
     disabled: PropTypes.bool,
-    handleBlur: PropTypes.func
+    handleBlur: PropTypes.func,
 }

@@ -5,7 +5,7 @@ import {grid} from "../../styles/mixin.styled";
 import {handleColorType} from "../../styles/functions.styled";
 
 export const Container = styled.div`
-  ${grid({justify:'center',align:"center"})};
+  ${grid({justify: 'center', align: "center"})};
   margin: 1rem 0;
   color: ${({theme}) => theme.colors.whiteColor};
 `
@@ -24,12 +24,12 @@ export const Input = styled.input`
   border-bottom: 1px solid ${({layout, theme}) => layout ? theme.colors.lighterRedColor : theme.colors.lighterBlackColor};
   outline: none;
   width: 15rem;
-  background: ${({bg})=>handleColorType(bg)};
+  background: ${({bg}) => handleColorType(bg)};
   color: ${({theme}) => theme.colors.secondaryColor};
 
   &:disabled {
     background-color: ${({theme}) => theme.colors.whiteColor};
-    color:${({theme}) => theme.colors.secondaryColor}; ;
+    color: ${({theme}) => theme.colors.secondaryColor};;
   }
 
   &:focus {
@@ -43,3 +43,4 @@ export const Error = styled.span`
   font-size: 1em;
   font-weight: bold;
 `
+

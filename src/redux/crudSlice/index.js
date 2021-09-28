@@ -25,7 +25,12 @@ export const deleteItem = createAsyncThunk(
 )
 
 export const updateSingleData = (id, url, updatedData) => {
-    DB.patch(`${url}/${id}`, updatedData)
+
+    const isPrice = updatedData.hasOwnProperty('price')
+    isPrice ? DB.patch(`${url}/${id}`, {
+        ...updatedData,
+        price: Number(updatedData.price)
+    }) : DB.patch(`${url}/${id}`, updatedData)
 }
 
 

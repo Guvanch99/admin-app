@@ -42,5 +42,21 @@ export const DATA = {
 
     tableHeaderRow:["ID","Name","Edit","Delete"],
 
-    selectOptionType:['combo','doner','beverage']
+    selectOptionType:['combo','doner','beverage'],
+
+    typeContainer:[
+        {
+            color:"red",
+            text:"Beverage"
+        },
+        {
+            color:"green",
+            text:"Combo"
+        },
+        {
+            color:"brown",
+            text:"Durum"
+        }
+    ]
+
 }

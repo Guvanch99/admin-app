@@ -8,7 +8,7 @@ import * as S from "./styled"
 
 const Products = () => {
     const {products} = useSelector(state => state.crud)
-console.log("products",products)
+
     return (
         <div>
             <PageBack/>

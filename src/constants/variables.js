@@ -7,3 +7,7 @@ export const FEATURED_PRODUCTS = '/featured-products'
 export const PRICE = 'price'
 export const ORDERS = '/orders'
 export const NEXT_ID = 2
+export const COMBO_TYPE='combo'
+export const DURUM_TYPE='durum'
+export const BEVERAGE_TYPE='beverage'
+export const EXPECTED_INCOME=500

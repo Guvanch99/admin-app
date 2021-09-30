@@ -3,7 +3,7 @@ import {useDispatch, useSelector} from "react-redux";
 
 import {DoughnutChart, Spinner} from "../../components";
 
-import {getData, getOrder, getOrders} from "../../redux/crudSlice";
+import {getOrder} from "../../redux/crudSlice";
 
 import * as S from './styled'
 
@@ -13,8 +13,7 @@ const Statistics = () => {
       dispatch(getOrder())
     }, [dispatch])
 
-    const {orders,status} = useSelector(state => state.crud)
-    console.log('orders', orders)
+    const {status} = useSelector(state => state.crud)
 
     return (
         <S.StatisticsContainer>

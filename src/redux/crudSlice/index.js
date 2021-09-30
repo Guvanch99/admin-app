@@ -3,7 +3,7 @@ import axios from "axios";
 
 import {DB} from "../../core/axios";
 
-import {ALL_PRODUCTS, FEATURED_PRODUCTS, GALLERY, NEXT_ID, PRICE, USERS} from "../../constants/variables";
+import {ALL_PRODUCTS, FEATURED_PRODUCTS, GALLERY, NEXT_ID, ORDERS, PRICE, USERS} from "../../constants/variables";
 
 export const getData = createAsyncThunk(
     'crud/getProducts',
@@ -33,6 +33,14 @@ export const updateSingleData = (id, url, updatedData) => {
     }) : DB.patch(`${url}/${id}`, updatedData)
 }
 
+export const getOrder = createAsyncThunk(
+    'crud/orders',
+    async () => {
+        const {data} = await DB(ORDERS)
+        return data
+    }
+)
+
 
 const CrudSlice = createSlice({
     name: 'crud',
@@ -43,7 +51,8 @@ const CrudSlice = createSlice({
         gallery: [],
         status: false,
         error: false,
-        isModal: false
+        isModal: false,
+        orders: []
     },
     reducers: {
         addNewData(state, {payload: {newData}}) {
@@ -70,7 +79,7 @@ const CrudSlice = createSlice({
         },
     },
     extraReducers: {
-        [getData.pending]: (state) => {
+        [getData.pending]: state => {
             state.status = true
             state.error = false
         },
@@ -82,10 +91,23 @@ const CrudSlice = createSlice({
             state.users = [payload[2].config.url, payload[2].data]
             state.gallery = [payload[3].config.url, payload[3].data]
         },
-        [getData.rejected]: (state) => {
+        [getData.rejected]: state => {
             state.error = true
             state.status = false
-        }
+        },
+        [getOrder.pending]: state => {
+            state.status = true
+            state.error = false
+        },
+        [getOrder.fulfilled]: (state, {payload}) => {
+            state.status = false
+            state.error = false
+            state.orders = payload
+        },
+        [getOrder.rejected]: state => {
+            state.error = true
+            state.status = false
+        },
     }
 })
 

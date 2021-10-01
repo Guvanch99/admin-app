@@ -16,8 +16,7 @@ const Home = () => {
         dispatch(getData())
     }, [dispatch])
 
-    const {status, error} = useSelector(state => state.crud)
-
+    const {status, error,} = useSelector(state => state.crud)
     return (
         <S.Container>
             {status ? <Spinner/> : <MainNavigation/>}

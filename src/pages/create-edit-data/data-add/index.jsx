@@ -19,7 +19,7 @@ import {REGEX_NUMBER} from "../../../constants/regex";
 import {DATA} from "../../../data";
 
 import * as S from '../styled'
-import {ErrorGlobal} from "../styled";
+
 
 
 const {selectOptionType} = DATA
@@ -95,7 +95,7 @@ const DataAdd = () => {
             <PageBack/>
             <S.FormEdit>
                 <S.EditMenuText>Add Menu</S.EditMenuText>
-                {error ? <ErrorGlobal>Price must be Number</ErrorGlobal> : null}
+                {error ? <S.ErrorGlobal>Price must be Number</S.ErrorGlobal> : null}
                 {Inputs}
                 {Select}
                 <S.ButtonContainer isPreview={addData.src}>

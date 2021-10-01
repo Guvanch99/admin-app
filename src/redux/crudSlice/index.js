@@ -38,6 +38,7 @@ export const getOrder = createAsyncThunk(
     async () => {
         const {data} = await DB(ORDERS)
         return data
+
     }
 )
 

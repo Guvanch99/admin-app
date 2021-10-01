@@ -11,3 +11,5 @@ export const COMBO_TYPE='combo'
 export const DURUM_TYPE='durum'
 export const BEVERAGE_TYPE='beverage'
 export const EXPECTED_INCOME=500
+export const HUNDRED_PERCENT=100
+export const FIRST_SEGMENT_OFF_SET=25

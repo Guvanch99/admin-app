@@ -73,14 +73,19 @@ export const SVG = styled.svg`
 export const ChartNumber = styled.text`
   font-size: .4em;
   text-align: center;
-  transform: translate(-2.7em, -0.8em);
-  fill: ${({theme})=>theme.colors.whiteColor};
+  transform: translate(-2.6em, -1em);
+  fill: ${({theme}) => theme.colors.whiteColor};
 `
 
 export const ChartLabelT = styled.text`
   font-size: 0.2em;
   text-transform: uppercase;
-  transform: translate(-4.6em, 0);
+  transform: translate(-7em, 0);
   opacity: .4;
-  fill: ${({theme})=>theme.colors.whiteColor};
+  fill: ${({theme}) => theme.colors.whiteColor};
+`
+export const Circle = styled.circle`
+  fill: transparent;
+  stroke-linecap: round;
+  stroke-width: 1;
 `

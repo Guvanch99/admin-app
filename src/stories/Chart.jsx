@@ -8,7 +8,7 @@ import {ChartLabel} from "./styled";
 
 const {typeContainer} = DATA
 
-const Chart = ({durum, beverage, combo}) => (
+const Chart = () => (
     <S.ChartContainer>
         <S.ChartLabel>Doughnut Chart</S.ChartLabel>
         <S.InfoContainer>
@@ -35,7 +35,7 @@ const Chart = ({durum, beverage, combo}) => (
             <circle className="donut-segment" cx="21" cy="21" r="15.91549430918954" fill="transparent" stroke="#000084"
                     strokeWidth="1" strokeDasharray="30 70" strokeDashoffset="85" strokeLinecap='round'/>
             <circle className="donut-segment" cx="21" cy="21" r="15.91549430918954" fill="transparent" stroke="brown"
-                    strokeWidth="1" strokeDasharray="30 80" strokeDashoffset="65" strokeLinecap='round'/>
+                    strokeWidth="1" strokeDasharray="30 0" strokeDashoffset="65" strokeLinecap='round'/>
             <S.ChartText className="chart-text">
                 <S.ChartNumber x="50%" y="50%" className="chart-Number">
                     $1000

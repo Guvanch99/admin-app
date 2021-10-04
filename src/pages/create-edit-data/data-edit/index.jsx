@@ -1,20 +1,20 @@
 import {useEffect, useState} from "react";
 import {useLocation, useHistory} from "react-router-dom";
 
-import {CustomButton, CustomInput, ModalPreview, Spinner, Portal, ModalSuccess, PageBack} from "../../../components";
+import {CustomButton, CustomInput, ModalPreview, Portal, ModalSuccess, PageBack} from "../../../components";
 
 import {updateSingleData} from "../../../redux/crudSlice";
 
-import {isObjectEmpty, isObjectValueEmpty} from "../../../utils";
+import { isObjectValueEmpty} from "../../../utils";
 
 import {getSingleData} from "../../../services/getSingleData";
 
 import {ROUTER_DATA_EDIT} from "../../../constants/routers";
-
-import * as S from '../styled'
-import {ErrorGlobal} from "../styled";
 import {REGEX_NUMBER} from "../../../constants/regex";
 
+import {ErrorGlobal} from "../styled";
+
+import * as S from '../styled'
 
 const DataEdit = () => {
     const location = useLocation()

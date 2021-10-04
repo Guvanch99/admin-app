@@ -11,9 +11,7 @@ import {isObjectValueEmpty} from "../../../utils";
 import {DB} from "../../../core/axios";
 
 import {ALL_PRODUCTS} from "../../../constants/variables";
-
 import {ROUTER_DATA_ADD} from "../../../constants/routers";
-
 import {REGEX_NUMBER} from "../../../constants/regex";
 
 import {DATA} from "../../../data";

@@ -1,4 +1,4 @@
-import {useEffect, useState} from "react";
+
 import {useSelector} from "react-redux";
 import PropTypes from "prop-types";
 
@@ -7,8 +7,6 @@ import {getTotals} from "../../utils";
 import {EXPECTED_INCOME} from "../../constants/variables";
 
 import * as S from './styled'
-import {Spinner} from "../index";
-
 
 const DoughnutChart = () => {
     const {orders} = useSelector(state => state.crud)

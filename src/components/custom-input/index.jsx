@@ -30,7 +30,9 @@ export default CustomInput
 
 CustomInput.propTypes = {
     name: PropTypes.string.isRequired,
-    value: PropTypes.string,
+    value: PropTypes.oneOfType([
+        PropTypes.string,
+        PropTypes.number]),
     onChange: PropTypes.func.isRequired,
     label: PropTypes.string.isRequired,
     type: PropTypes.string.isRequired,

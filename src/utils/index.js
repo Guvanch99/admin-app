@@ -14,59 +14,52 @@ export const isObjectEmpty = obj => Object.keys(obj).length === 0;
 export const isObjectValueEmpty = obj => Object.values(obj).some(x => x === '');
 
 export const getTotals = (orders) => {
+    //taking all carts from orders and flatting array and get all types from array after with Set get unique values
+    const uniqueTypes = [...new Set(orders.map(({cart}) => cart).flat().map(({type}) => type))]
+
+    const objectDefault = uniqueTypes.reduce((acc, curr) => {
+        acc[curr] = 0
+        return acc
+    }, {});
     const subTotalTypes = orders.map(({cart}) => cart.reduce(
-            ({subCombo, subDurum, subBeverage}, {type, subTotal}) => {
-                if (type === COMBO_TYPE) subCombo += subTotal
-                if (type === DURUM_TYPE) subDurum += subTotal
-                if (type === BEVERAGE_TYPE) subBeverage += subTotal
-                return {subCombo, subDurum, subBeverage}
-            },
-            {
-                subCombo: 0,
-                subDurum: 0,
-                subBeverage: 0
-            }
-        )
-    )
+        (subType, {type, subTotal}) => {
+            subType[type] += subTotal
+            return subType
+        }, objectDefault))
 
-    const {totalCombo, totalDurum, totalBeverage, total} = subTotalTypes.reduce(
-        ({totalCombo, totalDurum, totalBeverage, total}, {subCombo, subDurum, subBeverage}) => {
-            totalCombo += subCombo
-            totalDurum += subDurum
-            totalBeverage += subBeverage
-            total += subCombo + subDurum + subBeverage
+    const uniqueSubtotal = [...new Set(subTotalTypes)]
+    let arrayToObject = Object.assign({}, uniqueSubtotal[0]);
+    let percents = Object.keys(arrayToObject).reduce((percent, type) => {
+        percent[type] = arrayToObject[type] * 1 / 5
+        return percent
+    }, objectDefault)
 
-            return {totalCombo, totalDurum, totalBeverage, total}
-        }, {
-            totalCombo: 0,
-            totalDurum: 0,
-            totalBeverage: 0,
-            total: 0
-        }
-    )
+    const {combo, durum, beverage} = percents
 
+    const total = arrayToObject.combo + arrayToObject.durum + arrayToObject.beverage
 
     return {
         total,
         products: [
             {
-                percent: totalCombo * HUNDRED_PERCENT / EXPECTED_INCOME,
-                remain: HUNDRED_PERCENT - (totalCombo * HUNDRED_PERCENT / EXPECTED_INCOME),
+                percent: combo,
+                remain: HUNDRED_PERCENT - combo,
                 color: '#46C379',
-                offSet: FIRST_SEGMENT_OFF_SET
+                offSet: FIRST_SEGMENT_OFF_SET,
             },
             {
-                percent: totalDurum * HUNDRED_PERCENT / EXPECTED_INCOME,
-                remain: HUNDRED_PERCENT - (totalDurum * HUNDRED_PERCENT / EXPECTED_INCOME),
+                percent: durum,
+                remain: HUNDRED_PERCENT - durum,
                 color: '#000084',
-                offSet: HUNDRED_PERCENT-(totalCombo * HUNDRED_PERCENT / EXPECTED_INCOME)+FIRST_SEGMENT_OFF_SET
+                offSet: HUNDRED_PERCENT - combo + FIRST_SEGMENT_OFF_SET,
             },
             {
-                percent: totalBeverage * HUNDRED_PERCENT / EXPECTED_INCOME,
-                remain: HUNDRED_PERCENT - (totalBeverage * HUNDRED_PERCENT / EXPECTED_INCOME),
+                percent: beverage,
+                remain: HUNDRED_PERCENT - beverage,
                 color: 'brown',
-                offSet:HUNDRED_PERCENT-((totalCombo * HUNDRED_PERCENT / EXPECTED_INCOME)+HUNDRED_PERCENT + (totalDurum * HUNDRED_PERCENT / EXPECTED_INCOME))+FIRST_SEGMENT_OFF_SET
+                offSet: HUNDRED_PERCENT - (combo + durum) + FIRST_SEGMENT_OFF_SET,
             }
         ]
     }
 }
+

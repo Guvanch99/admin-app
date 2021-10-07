@@ -1,9 +1,10 @@
 import styled from "styled-components";
 
-import {flexJustifySpaceAround} from "../../styles/flex.styled";
+import {gridJusItems} from "../../styles/mixin.styled";
 
 export const TReaderRow = styled.tr`
-  ${flexJustifySpaceAround};
+  ${gridJusItems({justify:'center',align:'center'})};
+  grid-template-columns: repeat(4, 1fr);
   background: ${({theme}) => theme.colors.blueColor};
 `
 

@@ -1,4 +1,3 @@
-
 import {useSelector} from "react-redux";
 import PropTypes from "prop-types";
 
@@ -7,6 +6,7 @@ import {getTotals} from "../../utils";
 import {EXPECTED_INCOME} from "../../constants/variables";
 
 import * as S from './styled'
+import {ToolTip} from "../index";
 
 const DoughnutChart = () => {
     const {orders} = useSelector(state => state.crud)
@@ -23,13 +23,16 @@ const DoughnutChart = () => {
                     <S.InfoLabel>Remain</S.InfoLabel>
                     <S.InfoBox>
                         <S.LeftCircle/>
-                        <S.Money>$ {EXPECTED_INCOME - total<0?"Completed":EXPECTED_INCOME - total}</S.Money>
+                        <S.Money>$ {EXPECTED_INCOME - total < 0 ? "Completed" : EXPECTED_INCOME - total}</S.Money>
                     </S.InfoBox>
                 </S.Info>
                 <S.Info>
                     <S.InfoLabel>Earned</S.InfoLabel>
                     <S.InfoBox>
-                        <S.RightCircle/>
+                        <ToolTip position='bottom' text="&#128267;-combo &#128309;-durum &#128308;-beverage">
+                            <S.RightCircle/>
+                        </ToolTip>
+
                         <S.Money>$ {total}</S.Money>
                     </S.InfoBox>
                 </S.Info>
@@ -39,9 +42,9 @@ const DoughnutChart = () => {
                         strokeWidth="1"/>
                 {
                     products.map(({percent, remain, color, offSet}, idx) => (
-                        <S.Circle key={idx} cx="21" cy="21" r="15.91549430918954"
-                                  strokeDasharray={`${percent} ${remain}`}
-                                  stroke={color} strokeDashoffset={offSet}/>
+                            <S.Circle key={idx} cx="21" cy="21" r="15.91549430918954"
+                                      strokeDasharray={`${percent} ${remain}`}
+                                      stroke={color} strokeDashoffset={offSet}/>
                     ))
                 }
                 <g>

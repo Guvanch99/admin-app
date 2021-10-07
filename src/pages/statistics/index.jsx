@@ -1,7 +1,7 @@
 import {useEffect} from "react";
 import {useDispatch, useSelector} from "react-redux";
 
-import {DoughnutChart, Spinner} from "../../components";
+import {DoughnutChart, PageBack, Spinner, ToolTip} from "../../components";
 
 import {getOrder} from "../../redux/crudSlice";
 
@@ -17,6 +17,10 @@ const Statistics = () => {
 
     return (
         <S.StatisticsContainer>
+            <ToolTip position='right' text='home page'>
+                <PageBack/>
+            </ToolTip>
+
             {
                status ? <Spinner/> : <DoughnutChart/>
             }

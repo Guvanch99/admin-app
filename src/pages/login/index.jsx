@@ -71,6 +71,7 @@ const Login = () => {
         errors[name] && setErrors({...errors, [name]: ''})
         setAdminLogin({...adminLogin, [name]: value})
     }
+
     const login = (e) => {
         e.preventDefault()
         const adminNameUpperCase = upperCaseString(adminName)

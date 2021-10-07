@@ -10,20 +10,18 @@ import * as S from './styled'
 const Statistics = () => {
     const dispatch = useDispatch()
     useEffect(() => {
-      dispatch(getOrder())
+        dispatch(getOrder())
     }, [dispatch])
-
-    const {status} = useSelector(state => state.crud)
-
+    const {orders} = useSelector(state => state.crud)
+    console.log(orders)
     return (
         <S.StatisticsContainer>
             <ToolTip position='right' text='home page'>
                 <PageBack/>
             </ToolTip>
 
-            {
-               status ? <Spinner/> : <DoughnutChart/>
-            }
+            {orders.res.length > 0 && <DoughnutChart/>}
+
         </S.StatisticsContainer>
     )
 }

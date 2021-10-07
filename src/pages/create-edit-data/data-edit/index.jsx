@@ -1,24 +1,26 @@
 import {useEffect, useState} from "react";
 import {useLocation, useHistory} from "react-router-dom";
+import {useDispatch} from "react-redux";
 
 import {CustomButton, CustomInput, ModalPreview, Portal, ModalSuccess, PageBack} from "../../../components";
 
-import {updateSingleData} from "../../../redux/crudSlice";
-
-import { isObjectValueEmpty} from "../../../utils";
+import {isObjectValueEmpty} from "../../../utils";
 
 import {getSingleData} from "../../../services/getSingleData";
 
-import {ROUTER_DATA_EDIT} from "../../../constants/routers";
 import {REGEX_NUMBER} from "../../../constants/regex";
 
 import {ErrorGlobal} from "../styled";
 
 import * as S from '../styled'
+import {updateItem} from "../../../redux/crudSlice";
+import {Products} from "../../index";
+import {ROUTER_GALLERY, ROUTER_PRODUCTS, ROUTER_USERS} from "../../../constants/routers";
 
 const DataEdit = () => {
     const location = useLocation()
     const history = useHistory()
+    const dispatch = useDispatch()
 
     const [error, setError] = useState(false)
     const [isModalPreview, setIsModalPreview] = useState(false)
@@ -37,18 +39,28 @@ const DataEdit = () => {
     }
     const updateData = (e) => {
         e.preventDefault()
-        if (REGEX_NUMBER.test(singleData.price)) {
-            updateSingleData(id, url, singleData)
+        console.log(singleData)
+        if ((url === ROUTER_GALLERY)) {
+            const props = {id, url, singleData}
+            dispatch(updateItem(props))
             setIsModalSuccess(true)
-        } else
-            setError(true)
+        } else {
+            if (REGEX_NUMBER.test(singleData.price) || REGEX_NUMBER.test(singleData.bonus)) {
+                const props = {id, url, singleData}
+                dispatch(updateItem(props))
+                setIsModalSuccess(true)
+            } else
+                setError(true)
+        }
+
     }
 
     const toggleModalPreview = () => setIsModalPreview(!isModalPreview)
 
-    const closeModalSuccess = () => {
+    const closeModalSuccess = (e) => {
+        e.preventDefault()
         setIsModalSuccess(false)
-        history.push(ROUTER_DATA_EDIT)
+        url === '/all-products' ? history.push(ROUTER_PRODUCTS) : history.push(url)
     }
 
     const Inputs = Object.keys(singleData).map((key, idx) =>

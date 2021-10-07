@@ -1,8 +1,4 @@
 import {
-    BEVERAGE_TYPE,
-    COMBO_TYPE,
-    DURUM_TYPE,
-    EXPECTED_INCOME,
     FIRST_SEGMENT_OFF_SET,
     HUNDRED_PERCENT,
 } from "../constants/variables";

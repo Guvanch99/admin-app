@@ -11,7 +11,7 @@ import {ToolTip} from "../index";
 const DoughnutChart = () => {
     const {orders} = useSelector(state => state.crud)
 
-    const circleElements = getTotals(orders)
+    const circleElements = getTotals(orders.res)
     const {total, products} = circleElements
     console.log(circleElements)
 
@@ -42,9 +42,9 @@ const DoughnutChart = () => {
                         strokeWidth="1"/>
                 {
                     products.map(({percent, remain, color, offSet}, idx) => (
-                            <S.Circle key={idx} cx="21" cy="21" r="15.91549430918954"
-                                      strokeDasharray={`${percent} ${remain}`}
-                                      stroke={color} strokeDashoffset={offSet}/>
+                        <S.Circle key={idx} cx="21" cy="21" r="15.91549430918954"
+                                  strokeDasharray={`${percent} ${remain}`}
+                                  stroke={color} strokeDashoffset={offSet}/>
                     ))
                 }
                 <g>

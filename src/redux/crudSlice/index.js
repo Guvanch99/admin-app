@@ -1,48 +1,7 @@
-import {createSlice, createAsyncThunk} from "@reduxjs/toolkit";
-import axios from "axios";
-
-import {DB} from "../../core/axios";
+import {createSlice} from "@reduxjs/toolkit";
 
 import {ALL_PRODUCTS,NEXT_ID,} from "../../constants/variables";
 import {ROUTER_FEATURED_PRODUCTS, ROUTER_GALLERY, ROUTER_USERS} from "../../constants/routers";
-
-// export const getData = createAsyncThunk(
-//     'crud/getProducts',
-//     async () =>
-//         await axios.all([
-//             DB(ALL_PRODUCTS),
-//             DB(FEATURED_PRODUCTS),
-//             DB(USERS),
-//             DB(GALLERY)
-//         ])
-// )
-
-// export const deleteItem = createAsyncThunk(
-//     'crud/delete',
-//     async ({id, url}, {dispatch}) => {
-//         await DB.delete(`${url}/${id}`)
-//         dispatch(deleteData({id, url}))
-//     }
-// )
-
-// export const updateSingleData = (id, url, updatedData) => {
-//
-//     const isPrice = updatedData.hasOwnProperty(PRICE)
-//     isPrice ? DB.patch(`${url}/${id}`, {
-//         ...updatedData,
-//         price: Number(updatedData.price)
-//     }) : DB.patch(`${url}/${id}`, updatedData)
-// }
-
-// export const getOrder = createAsyncThunk(
-//     'crud/orders',
-//     async () => {
-//         const {data} = await DB(ORDERS)
-//         return data
-//
-//     }
-// )
-
 
 const CrudSlice = createSlice({
     name: 'crud',
@@ -52,7 +11,8 @@ const CrudSlice = createSlice({
         featuredProducts: [],
         gallery: [],
         isModal: false,
-        orders: []
+        orders: [],
+        state:false
     },
     reducers: {
         addNewData(state, {payload: {newData}}) {
@@ -90,37 +50,6 @@ const CrudSlice = createSlice({
                     return state
             }
         },
-    },
-    extraReducers: {
-        // [getData.pending]: state => {
-        //     state.status = true
-        //     state.error = false
-        // },
-        // [getData.fulfilled]: (state, {payload}) => {
-        //     state.status = false
-        //     state.error = false
-        //     state.products = [payload[0].config.url, payload[0].data]
-        //     state.featuredProducts = [payload[1].config.url, payload[1].data]
-        //     state.users = [payload[2].config.url, payload[2].data]
-        //     state.gallery = [payload[3].config.url, payload[3].data]
-        // },
-        // [getData.rejected]: state => {
-        //     state.error = true
-        //     state.status = false
-        // },
-        // [getOrder.pending]: state => {
-        //     state.status = true
-        //     state.error = false
-        // },
-        // [getOrder.fulfilled]: (state, {payload}) => {
-        //     state.status = false
-        //     state.error = false
-        //     state.orders = payload
-        // },
-        // [getOrder.rejected]: state => {
-        //     state.error = true
-        //     state.status = false
-        // },
     }
 })
 

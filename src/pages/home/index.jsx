@@ -16,7 +16,7 @@ const Home = () => {
     }, [dispatch])
 
     const {gallery} = useSelector(state => state.crud)
-    console.log("gallery", gallery)
+
     return (
         <S.Container>
             {gallery.length > 0 ? <MainNavigation/> : <Spinner/>}

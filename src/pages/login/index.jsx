@@ -29,12 +29,6 @@ const Login = () => {
     const {adminNotFound} = useSelector(state => state.admin)
     const isButtonDisabled = !adminName || !password || errors.adminName || errors.password
 
-
-    /* const validation = ({target:{name}},length,errorText) => (
-         name.length<length&&
-         setErrors({...errors, [name]: `${errorText} ${length}`})
-     )*/
-
     const adminValidation = () => adminName.length < 4 ? setErrors({
         ...errors,
         adminName: "length must be more than 4"

@@ -39,7 +39,15 @@ export async function requestUpdate({id, url, singleData}) {
             ...singleData,
             price: Number(singleData.price)
         }) : await DB.patch(`${url}/${id}`, singleData)
-    } catch (error) {
-        console.log(error)
+        url === ROUTER_USERS ?
+            await DB.patch(`${url}/${id}`, {
+                ...singleData,
+                restrictedPromoCodes: [singleData.restrictedPromoCodes] })
+            :await DB.patch(`${url}/${id}`, singleData)
+
+    } catch
+        (error)
+        {
+            console.log(error)
+        }
     }
-}

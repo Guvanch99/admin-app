@@ -13,7 +13,6 @@ const Statistics = () => {
         dispatch(getOrder())
     }, [dispatch])
     const {orders} = useSelector(state => state.crud)
-    console.log(orders)
     return (
         <S.StatisticsContainer>
             <ToolTip position='right' text='home page'>

@@ -25,7 +25,6 @@ export function* handleDelete({payload}) {
 }
 
 export function* handleUpdate({payload}) {
-    console.log("pY",payload)
     yield call(requestUpdate, payload)
 }
 

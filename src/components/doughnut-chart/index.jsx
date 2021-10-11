@@ -13,7 +13,6 @@ const DoughnutChart = () => {
 
     const circleElements = getTotals(orders.res)
     const {total, products} = circleElements
-    console.log(circleElements)
 
     return (
         <S.ChartContainer>

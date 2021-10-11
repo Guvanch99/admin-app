@@ -32,7 +32,6 @@ export async function requestDelete({url, id}) {
 }
 
 export async function requestUpdate({id, url, singleData}) {
-    console.log(id, url, singleData)
     try {
         const isPrice = singleData.hasOwnProperty(PRICE)
         isPrice ? await DB.patch(`${url}/${id}`, {

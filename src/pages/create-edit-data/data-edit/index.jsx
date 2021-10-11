@@ -39,7 +39,6 @@ const DataEdit = () => {
     }
     const updateData = (e) => {
         e.preventDefault()
-        console.log(singleData)
         if ((url === ROUTER_GALLERY)) {
             const props = {id, url, singleData}
             dispatch(updateItem(props))

@@ -195,10 +195,8 @@ const data = {
 
 
 const info = data.orders.filter(({user}) => user.email==='wakejohns777@gmail.com')
-console.log("info",info)
 const b=info.reduce(
     (total, {totalAmount})=>{
         total+=totalAmount
         return total
     },0)
-console.log(b)

@@ -6,12 +6,31 @@ import {ALL_PRODUCTS, ORDERS, PRICE} from "../../../constants/variables";
 import {ROUTER_FEATURED_PRODUCTS, ROUTER_GALLERY, ROUTER_USERS} from "../../../constants/routers";
 
 export async function requestData() {
-    return await axios.all([
-        DB(ALL_PRODUCTS),
-        DB(ROUTER_FEATURED_PRODUCTS),
-        DB(ROUTER_USERS),
-        DB(ROUTER_GALLERY)
-    ])
+    try {
+        return await axios.all([
+            DB(ROUTER_FEATURED_PRODUCTS),
+            DB(ROUTER_GALLERY)
+        ])
+    } catch (error) {
+        console.log(error)
+    }
+}
+
+export async function requestProducts(page) {
+    console.log('requestProducts',page)
+    try {
+        return await DB(`${ALL_PRODUCTS}?_limit=4&_page=${page}`)
+    } catch (error) {
+        console.log(error)
+    }
+}
+
+export async function requestUsers(page) {
+    try {
+        return await DB(`${ROUTER_USERS}?_limit=4&_page=${page}`)
+    } catch (error) {
+        console.log(error)
+    }
 }
 
 export async function requestOrders() {

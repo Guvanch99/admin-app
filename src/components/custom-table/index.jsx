@@ -3,10 +3,14 @@ import PropTypes from "prop-types"
 
 import {CustomButton, TableBody, TableHeader, Pagination} from "../index"
 
+import {LIMIT_ITEMS} from "../../constants/variables";
+
 import * as S from "./styled"
 
-const CustomTable = ({data, deleteHandler}) => {
+const CustomTable = ({data,setCurrentPage}) => {
     const refTable = useRef(null)
+
+    const countItems = Math.ceil(data[2] / LIMIT_ITEMS)
 
     const createExcel = () => {
         let csv = [];
@@ -39,9 +43,9 @@ const CustomTable = ({data, deleteHandler}) => {
             <CustomButton onclick={createExcel}>Download Excel</CustomButton>
             <S.Table ref={refTable}>
                 <TableHeader url={data[0]}/>
-                <TableBody data={data} deleteHandler={deleteHandler}/>
+                <TableBody data={data} />
             </S.Table>
-            <Pagination/>
+            {countItems === 1 || isNaN(countItems) ? null : <Pagination countItems={countItems} setCurrentPage={setCurrentPage}/>}
         </S.CustomTableContainer>
     )
 }
@@ -50,5 +54,6 @@ const CustomTable = ({data, deleteHandler}) => {
 export default CustomTable
 
 CustomTable.propTypes = {
-    data: PropTypes.array.isRequired
+    data: PropTypes.array.isRequired,
+    setCurrentPage:PropTypes.func
 }

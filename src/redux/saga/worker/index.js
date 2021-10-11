@@ -1,8 +1,8 @@
 import {call, put} from 'redux-saga/effects'
 
-import {deleteData, setData, setOrder} from "../../crudSlice";
+import {deleteData, setData, setOrder, setProducts, setUsers} from "../../crudSlice";
 
-import {requestData, requestDelete, requestOrders, requestUpdate} from "../requests";
+import {requestData, requestDelete, requestOrders, requestProducts, requestUpdate, requestUsers} from "../requests";
 
 export function* handleData() {
     const res = yield call(requestData)
@@ -14,14 +14,22 @@ export function* handleOrders() {
     yield put(setOrder({data}))
 }
 
+export function* handleProducts({payload}) {
+    const res = yield call(requestProducts,payload)
+    yield put(setProducts({...res}))
+}
+
+export function* handleUsers({payload}) {
+    const res = yield call(requestUsers,payload)
+    yield put(setUsers({...res}))
+}
+
 export function* handleDelete({payload}) {
     const {id, url} = payload
-    try {
-        yield call(requestDelete, payload)
-        yield put(deleteData({id, url}))
-    } catch (error) {
-        console.log(error)
-    }
+
+    yield call(requestDelete, payload)
+    yield put(deleteData({id, url}))
+
 }
 
 export function* handleUpdate({payload}) {

@@ -5,7 +5,6 @@ import {CustomButton} from "../../index";
 
 import * as S from '../styled'
 
-
 const ModalPreview = ({data, toggleModalPreview}) => {
     const objectLength = Object.keys(data).length
     const {name, src, price, description} = data

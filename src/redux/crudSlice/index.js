@@ -19,6 +19,10 @@ const CrudSlice = createSlice({
             const product = {id: state.products[1].length + NEXT_ID, ...newData,}
             state.products[1].push(product)
         },
+        getUsers() {
+        },
+        getProducts() {
+        },
         getData() {
         },
         getOrder() {
@@ -28,14 +32,17 @@ const CrudSlice = createSlice({
         updateItem() {
         },
         setOrder(state, {payload}) {
-            console.log("crudSlice", payload)
             state.orders = payload.data
         },
         setData(state, {payload}) {
-            state.products = [payload[0].config.url, payload[0].data]
-            state.featuredProducts = [payload[1].config.url, payload[1].data]
-            state.users = [payload[2].config.url, payload[2].data]
-            state.gallery = [payload[3].config.url, payload[3].data]
+            state.featuredProducts = [payload[0].config.url, payload[0].data]
+            state.gallery = [payload[1].config.url, payload[1].data]
+        },
+        setProducts(state, {payload}) {
+            state.products = [payload.config.url.split('?')[0], payload.data, payload.headers['x-total-count']]
+        },
+        setUsers(state, {payload}) {
+            state.users =[payload.config.url.split('?')[0], payload.data, payload.headers['x-total-count']]
         },
         deleteData(state, {payload}) {
             switch (payload.url) {
@@ -58,6 +65,19 @@ const CrudSlice = createSlice({
     }
 })
 
-export const {deleteData, addNewData, setData, getData, setOrder, getOrder, deleteItem, updateItem} = CrudSlice.actions
+export const {
+    deleteData,
+    addNewData,
+    setData,
+    getData,
+    setOrder,
+    getOrder,
+    deleteItem,
+    updateItem,
+    getProducts,
+    getUsers,
+    setProducts,
+    setUsers
+} = CrudSlice.actions
 
 export default CrudSlice.reducer

@@ -19,7 +19,6 @@ import {DATA} from "../../../data";
 import * as S from '../styled'
 
 
-
 const {selectOptionType} = DATA
 
 const DataAdd = () => {
@@ -31,6 +30,7 @@ const DataAdd = () => {
         description: '',
         price: ''
     })
+
     const [error, setError] = useState(false)
     const [addDataType, setAddDataType] = useState('combo')
     const [isModalPreview, setIsModalPreview] = useState(false)

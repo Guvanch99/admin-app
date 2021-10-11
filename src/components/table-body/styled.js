@@ -1,6 +1,7 @@
 import styled from "styled-components";
 
 import {handleColorType} from "../../styles/functions.styled";
+
 import {gridJusItems} from "../../styles/mixin.styled";
 
 export const Icon = styled.i`

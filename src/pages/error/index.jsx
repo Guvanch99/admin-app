@@ -8,6 +8,7 @@ import * as S from "./styled"
 
 const Error = () => {
     const history = useHistory()
+
     useEffect(() => {
         setTimeout(() => {
             history.push(ROUTER_HOME)

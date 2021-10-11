@@ -1,10 +1,13 @@
-import styled, {css} from "styled-components";
+import styled from "styled-components";
 
-import {flex} from "../../styles/flex.styled";
+import {flexCenter} from "../../styles/flex.styled";
+
 import {grid} from "../../styles/mixin.styled";
 
+import {flex} from "../../stories/styled";
+
 export const ModalWrapper = styled.div`
-  ${flex};
+  ${flexCenter};
   width: 100%;
   height: 100%;
   position: absolute;
@@ -25,9 +28,7 @@ export const Modal = styled.div`
 `
 
 export const FlexContainer = styled.div`
-  display: flex;
-  justify-content: space-evenly;
-  align-items: center;
+  ${flex({justify: 'space-around', align: 'center'})};
 `
 
 export const Image = styled.img`
@@ -36,6 +37,7 @@ export const Image = styled.img`
   height: 20rem;
   margin: 2rem 0;
 `
+
 
 export const ModalPreviewInfo = styled.div`
   ${grid({justify: 'space-evenly', align: 'center'})};

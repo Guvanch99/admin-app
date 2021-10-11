@@ -37,6 +37,7 @@ const DataEdit = () => {
         setSingleData({...singleData, [name]: value})
         setError(false)
     }
+
     const updateData = (e) => {
         e.preventDefault()
         if ((url === ROUTER_GALLERY)) {

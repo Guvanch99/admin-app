@@ -6,15 +6,14 @@ export const FormEdit = styled.form`
   display: grid;
   justify-items: center;
   align-items: center;
-
 `
 
 export const EditMenuText = styled.h1`
   font-size: 4em;
   color: ${({theme}) => theme.colors.mainColor};
   margin: 2rem auto;
-
 `
+
 export const ButtonContainer = styled.div`
   ${({isPreview}) => {
     if (isPreview) {
@@ -42,5 +41,4 @@ export const ErrorGlobal = styled.h1`
   font-size: 2rem;
   text-align: center;
   color: ${({theme}) => theme.colors.lighterRedColor};
-
 `

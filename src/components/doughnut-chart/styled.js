@@ -28,6 +28,7 @@ export const InfoContainer = styled.div`
   ${flex({justify: 'space-around', align: 'center'})};
   margin: 2rem 0;
 `
+
 export const Info = styled.div`
   ${flex({justify: 'center', align: 'center'})};
   flex-direction: column;

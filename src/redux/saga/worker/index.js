@@ -10,8 +10,8 @@ export function* handleData() {
 }
 
 export function* handleOrders() {
-    const res = yield call(requestOrders)
-    yield put(setOrder({res}))
+    const {data} = yield call(requestOrders)
+    yield put(setOrder({data}))
 }
 
 export function* handleDelete({payload}) {

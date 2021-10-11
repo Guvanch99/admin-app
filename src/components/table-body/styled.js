@@ -10,7 +10,7 @@ export const Icon = styled.i`
 `
 
 export const TableBodyRowContainer = styled.tr`
- ${gridJusItems({justify:'center',align:'center'})};
+  ${gridJusItems({justify: 'center', align: 'center'})};
   grid-template-columns: repeat(4, 1fr);
 
   &:nth-child(even) {
@@ -20,4 +20,7 @@ export const TableBodyRowContainer = styled.tr`
 
 export const TableBodyTD = styled.td`
   margin: .5rem 2rem;
+  max-width: 13rem;
+  width: 10rem;
+
 `

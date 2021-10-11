@@ -1,12 +1,13 @@
 import {useRef} from "react";
 import PropTypes from "prop-types"
 
-import {CustomButton, TableBody, TableHeader} from "../index"
+import {CustomButton, TableBody, TableHeader, Pagination} from "../index"
 
 import * as S from "./styled"
 
 const CustomTable = ({data, deleteHandler}) => {
     const refTable = useRef(null)
+
     const createExcel = () => {
         let csv = [];
         let rows = refTable.current.querySelectorAll("tr");
@@ -40,6 +41,7 @@ const CustomTable = ({data, deleteHandler}) => {
                 <TableHeader url={data[0]}/>
                 <TableBody data={data} deleteHandler={deleteHandler}/>
             </S.Table>
+            <Pagination/>
         </S.CustomTableContainer>
     )
 }

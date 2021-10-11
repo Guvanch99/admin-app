@@ -1,6 +1,6 @@
 import {createSlice} from "@reduxjs/toolkit";
 
-import {ALL_PRODUCTS,NEXT_ID,} from "../../constants/variables";
+import {ALL_PRODUCTS, NEXT_ID,} from "../../constants/variables";
 import {ROUTER_FEATURED_PRODUCTS, ROUTER_GALLERY, ROUTER_USERS} from "../../constants/routers";
 
 const CrudSlice = createSlice({
@@ -12,19 +12,24 @@ const CrudSlice = createSlice({
         gallery: [],
         isModal: false,
         orders: [],
-        state:false
+        state: false
     },
     reducers: {
         addNewData(state, {payload: {newData}}) {
             const product = {id: state.products[1].length + NEXT_ID, ...newData,}
             state.products[1].push(product)
         },
-        getData(){},
-        getOrder(){},
-        deleteItem(){},
-        updateItem(){},
-        setOrder(state, {payload}){
-            state.orders=payload
+        getData() {
+        },
+        getOrder() {
+        },
+        deleteItem() {
+        },
+        updateItem() {
+        },
+        setOrder(state, {payload}) {
+            console.log("crudSlice", payload)
+            state.orders = payload.data
         },
         setData(state, {payload}) {
             state.products = [payload[0].config.url, payload[0].data]
@@ -53,6 +58,6 @@ const CrudSlice = createSlice({
     }
 })
 
-export const {deleteData, addNewData,setData,getData,setOrder,getOrder,deleteItem,updateItem} = CrudSlice.actions
+export const {deleteData, addNewData, setData, getData, setOrder, getOrder, deleteItem, updateItem} = CrudSlice.actions
 
 export default CrudSlice.reducer

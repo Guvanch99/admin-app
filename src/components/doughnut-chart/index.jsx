@@ -11,7 +11,7 @@ import {ToolTip} from "../index";
 const DoughnutChart = () => {
     const {orders} = useSelector(state => state.crud)
 
-    const circleElements = getTotals(orders.res)
+    const circleElements = getTotals(orders)
     const {total, products} = circleElements
 
     return (

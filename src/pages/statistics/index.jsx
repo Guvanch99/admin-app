@@ -13,13 +13,14 @@ const Statistics = () => {
         dispatch(getOrder())
     }, [dispatch])
     const {orders} = useSelector(state => state.crud)
+
     return (
         <S.StatisticsContainer>
             <ToolTip position='right' text='home page'>
                 <PageBack/>
             </ToolTip>
 
-            {orders.res.length > 0 && <DoughnutChart/>}
+            {orders.length > 0 ? <DoughnutChart/> : <Spinner/>}
 
         </S.StatisticsContainer>
     )

@@ -2,7 +2,7 @@ import axios from "axios";
 
 import {DB} from "../../../core/axios";
 
-import {ALL_PRODUCTS, BONUS, ORDERS, PRICE} from "../../../constants/variables";
+import {ALL_PRODUCTS, ORDERS, PRICE} from "../../../constants/variables";
 import {ROUTER_FEATURED_PRODUCTS, ROUTER_GALLERY, ROUTER_USERS} from "../../../constants/routers";
 
 export async function requestData() {
@@ -16,8 +16,7 @@ export async function requestData() {
 
 export async function requestOrders() {
     try {
-        const {data} = await DB(ORDERS);
-        return data
+        return await DB(ORDERS);
     } catch (error) {
         console.log(error)
     }
@@ -41,12 +40,12 @@ export async function requestUpdate({id, url, singleData}) {
         url === ROUTER_USERS ?
             await DB.patch(`${url}/${id}`, {
                 ...singleData,
-                restrictedPromoCodes: [singleData.restrictedPromoCodes] })
-            :await DB.patch(`${url}/${id}`, singleData)
+                restrictedPromoCodes: [singleData.restrictedPromoCodes]
+            })
+            : await DB.patch(`${url}/${id}`, singleData)
 
     } catch
-        (error)
-        {
-            console.log(error)
-        }
+        (error) {
+        console.log(error)
     }
+}

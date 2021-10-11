@@ -1,12 +1,18 @@
 import * as S from './styled'
 
-const Pagination = ({countItems,setCurrentPage}) => {
+const Pagination = ({countItems, setCurrentPage, currentPage}) => {
+
     let buttons = [...Array(countItems).keys()].map(i =>
-        <S.PageButtons onClick={()=>setCurrentPage(i + 1)} key={i + 1}>{i + 1}</S.PageButtons>)
+        <S.PageButtons
+            to='#'
+            isActive={currentPage === i + 1}
+            onClick={() => setCurrentPage(i + 1)} key={i}>
+            {i + 1}
+        </S.PageButtons>)
 
     return (
         <S.PaginationContainer>
-        {buttons}
+            {buttons}
         </S.PaginationContainer>
     )
 }

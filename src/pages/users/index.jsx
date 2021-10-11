@@ -23,7 +23,7 @@ const Users = () => {
                 users.length > 0 ? (
                     <div>
                         <PageBack/>
-                        <CustomTable data={users} setCurrentPage={setCurrentPage}/>
+                        <CustomTable data={users} setCurrentPage={setCurrentPage} currentPage={currentPage}/>
                     </div>
                 ) : <Spinner/>
             }

@@ -26,7 +26,7 @@ const Products = () => {
                         <S.AddLink to={ROUTER_DATA_ADD}>
                             Add Products
                         </S.AddLink>
-                        <CustomTable data={products} setCurrentPage={setCurrentPage}/>
+                        <CustomTable data={products} setCurrentPage={setCurrentPage} currentPage={currentPage}/>
                     </div>
                 ) : <Spinner/>
             }

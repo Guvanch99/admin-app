@@ -7,7 +7,7 @@ import {LIMIT_ITEMS} from "../../constants/variables";
 
 import * as S from "./styled"
 
-const CustomTable = ({data,setCurrentPage}) => {
+const CustomTable = ({data,setCurrentPage,currentPage}) => {
     const refTable = useRef(null)
 
     const countItems = Math.ceil(data[2] / LIMIT_ITEMS)
@@ -45,7 +45,7 @@ const CustomTable = ({data,setCurrentPage}) => {
                 <TableHeader url={data[0]}/>
                 <TableBody data={data} />
             </S.Table>
-            {countItems === 1 || isNaN(countItems) ? null : <Pagination countItems={countItems} setCurrentPage={setCurrentPage}/>}
+            {countItems === 1 || isNaN(countItems) ? null : <Pagination countItems={countItems} setCurrentPage={setCurrentPage} currentPage={currentPage}/>}
         </S.CustomTableContainer>
     )
 }

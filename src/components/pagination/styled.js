@@ -13,11 +13,16 @@ export const PageButtons = styled.button`
   border-radius: 10%;
   cursor: pointer;
   border: none;
+  background: ${({isActive, theme}) => isActive ? theme.colors.orangeColor : theme.colors.blueColor};
+  font-size: 1.6em;
+  color: ${({theme}) => theme.colors.whiteColor};
 
   &:hover {
-    background: ${({theme}) => theme.colors.blueColor};
+    background: ${({theme}) => theme.colors.lighterYellowColor};
     color: ${({theme}) => theme.colors.whiteColor};
   }
+
+
 `
 
 

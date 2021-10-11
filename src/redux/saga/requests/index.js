@@ -17,7 +17,6 @@ export async function requestData() {
 }
 
 export async function requestProducts(page) {
-    console.log('requestProducts',page)
     try {
         return await DB(`${ALL_PRODUCTS}?_limit=4&_page=${page}`)
     } catch (error) {

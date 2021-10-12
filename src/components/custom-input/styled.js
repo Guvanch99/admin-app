@@ -1,7 +1,6 @@
 import styled from "styled-components";
 
 import {grid} from "../../styles/mixin.styled";
-
 import {handleColorType} from "../../styles/functions.styled";
 
 export const Container = styled.div`

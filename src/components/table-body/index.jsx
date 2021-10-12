@@ -16,7 +16,10 @@ const TableBody = ({data}) => {
 
     const dispatch = useDispatch()
 
-    const handleDelete = (id, url) => dispatch(deleteItem({id, url}))
+    const handleDelete = (id, url) => {
+        const prop = {id, url}
+        dispatch(deleteItem(prop))
+    }
 
     return (
         <tbody>
@@ -41,7 +44,6 @@ const TableBody = ({data}) => {
         </tbody>
     )
 }
-
 
 export default TableBody
 

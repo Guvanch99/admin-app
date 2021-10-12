@@ -5,21 +5,19 @@ import {CustomButton} from "../../index";
 
 import * as S from '../styled'
 
-const ModalSuccess=({closeModalSuccess})=>{
+const ModalSuccess = ({closeModalSuccess}) => (
+    <S.ModalWrapper>
+        <S.Modal onClick={closeModalSuccess}>
+            <S.ModalSuccessLabel>Success</S.ModalSuccessLabel>
+            <S.Icon className="far fa-check-circle"/>
+            <CustomButton onclick={closeModalSuccess} name='Close'/>
+        </S.Modal>
+    </S.ModalWrapper>
+)
 
-    return(
-        <S.ModalWrapper>
-            <S.Modal onClick={closeModalSuccess}>
-                <S.ModalSuccessLabel>Success</S.ModalSuccessLabel>
-                <S.Icon className="far fa-check-circle" />
-                <CustomButton onclick={closeModalSuccess} name='Close' />
-            </S.Modal>
-        </S.ModalWrapper>
-    )
-}
 
 export default memo(ModalSuccess)
 
-ModalSuccess.propTypes={
-    closeModalSuccess:PropTypes.func.isRequired
+ModalSuccess.propTypes = {
+    closeModalSuccess: PropTypes.func.isRequired
 }

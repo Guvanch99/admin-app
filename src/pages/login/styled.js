@@ -25,7 +25,6 @@ export const AuthText = styled.h1`
 `
 
 export const Error = styled.h1`
-
   font-size: 2em;
   color: ${({theme}) => theme.colors.lighterRedColor};
   text-align: center;

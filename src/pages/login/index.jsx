@@ -7,7 +7,6 @@ import {CustomInput,CustomButton} from '../../components'
 import {loginAdmin, adminError} from "../../redux/adminSlice"
 
 import {ROUTER_HOME} from "../../constants/routers"
-
 import {ADMIN_NAME, ADMIN_PASSWORD} from "../../constants/variables"
 
 import {upperCaseString} from "../../utils"
@@ -29,12 +28,6 @@ const Login = () => {
     const dispatch = useDispatch()
     const {adminNotFound} = useSelector(state => state.admin)
     const isButtonDisabled = !adminName || !password || errors.adminName || errors.password
-
-
-    /* const validation = ({target:{name}},length,errorText) => (
-         name.length<length&&
-         setErrors({...errors, [name]: `${errorText} ${length}`})
-     )*/
 
     const adminValidation = () => adminName.length < 4 ? setErrors({
         ...errors,
@@ -72,6 +65,7 @@ const Login = () => {
         errors[name] && setErrors({...errors, [name]: ''})
         setAdminLogin({...adminLogin, [name]: value})
     }
+
     const login = (e) => {
         e.preventDefault()
         const adminNameUpperCase = upperCaseString(adminName)

@@ -1,13 +1,12 @@
 import {useEffect} from "react"
 import {useDispatch, useSelector} from "react-redux"
 
-import {Error} from "../"
-
 import {MainNavigation, Spinner} from "../../components"
 
-import {getData} from "../../redux/crudSlice"
+import {getData} from "../../redux/crudSlice";
 
 import * as S from "./styled";
+
 
 const Home = () => {
     const dispatch = useDispatch()
@@ -16,12 +15,11 @@ const Home = () => {
         dispatch(getData())
     }, [dispatch])
 
-    const {status, error} = useSelector(state => state.crud)
+    const {gallery} = useSelector(state => state.crud)
 
     return (
         <S.Container>
-            {status ? <Spinner/> : <MainNavigation/>}
-            {error ? <Error/> : null}
+            {gallery.length > 0 ? <MainNavigation/> : <Spinner/>}
         </S.Container>
     )
 }

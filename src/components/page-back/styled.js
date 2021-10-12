@@ -17,6 +17,7 @@ export const Button = styled.button`
   color: ${({theme}) => theme.colors.mainColor};
   position: fixed;
   ${baseStyle};
+  margin-top: -0.4rem;
   margin-right: 1rem;
 
   @media (max-width: ${({theme}) => theme.netbook} ) {

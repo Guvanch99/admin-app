@@ -11,15 +11,12 @@ import {isObjectValueEmpty} from "../../../utils";
 import {DB} from "../../../core/axios";
 
 import {ALL_PRODUCTS} from "../../../constants/variables";
-
 import {ROUTER_DATA_ADD} from "../../../constants/routers";
-
 import {REGEX_NUMBER} from "../../../constants/regex";
 
 import {DATA} from "../../../data";
 
 import * as S from '../styled'
-import {ErrorGlobal} from "../styled";
 
 
 const {selectOptionType} = DATA
@@ -33,6 +30,7 @@ const DataAdd = () => {
         description: '',
         price: ''
     })
+
     const [error, setError] = useState(false)
     const [addDataType, setAddDataType] = useState('combo')
     const [isModalPreview, setIsModalPreview] = useState(false)
@@ -95,7 +93,7 @@ const DataAdd = () => {
             <PageBack/>
             <S.FormEdit>
                 <S.EditMenuText>Add Menu</S.EditMenuText>
-                {error ? <ErrorGlobal>Price must be Number</ErrorGlobal> : null}
+                {error ? <S.ErrorGlobal>Price must be Number</S.ErrorGlobal> : null}
                 {Inputs}
                 {Select}
                 <S.ButtonContainer isPreview={addData.src}>

@@ -9,6 +9,8 @@ export const isObjectEmpty = obj => Object.keys(obj).length === 0;
 
 export const isObjectValueEmpty = obj => Object.values(obj).some(x => x === '');
 
+export const biteToMb = (number) => (number / Math.pow(1024, 2)).toFixed(2)
+
 export const getTotals = (orders) => {
     //taking all carts from orders and flatting array and get all types from array after with Set get unique values
     const uniqueTypes = [...new Set(orders.map(({cart}) => cart).flat().map(({type}) => type))]

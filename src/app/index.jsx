@@ -11,7 +11,8 @@ import {
     FeaturedProducts,
     DataEdit,
     Statistics,
-    DataAdd
+    DataAdd,
+    FileUpload
 } from '../pages'
 
 import {PrivateRoute} from "../components"
@@ -22,7 +23,12 @@ import {
     ROUTER_PRODUCTS,
     ROUTER_HOME,
     ROUTER_ERROR,
-    ROUTER_FEATURED_PRODUCTS, ROUTER_GALLERY, ROUTER_DATA_EDIT, ROUTER_STATISTICS, ROUTER_DATA_ADD
+    ROUTER_FEATURED_PRODUCTS,
+    ROUTER_GALLERY,
+    ROUTER_DATA_EDIT,
+    ROUTER_STATISTICS,
+    ROUTER_DATA_ADD,
+    ROUTER_FILEUPLOAD
 } from "../constants/routers";
 
 import {theme} from "../styles/Theme.styled";
@@ -62,6 +68,10 @@ const privateRoutes = [
     {
         path:ROUTER_STATISTICS,
         children: <Statistics/>
+    },
+    {
+        path:ROUTER_FILEUPLOAD,
+        children:<FileUpload/>
     }
 
 ]

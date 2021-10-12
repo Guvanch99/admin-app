@@ -12,6 +12,12 @@ export const handleColorType = color => {
     }
 };
 
+export const handleStatus=status=>{
+ if(status==='error'){
+
+ }
+}
+
 export const handlePosition = position => {
     if (position === "top") {
         return `

@@ -2,7 +2,7 @@ import {
     ROUTER_FEATURED_PRODUCTS, ROUTER_FILEUPLOAD,
     ROUTER_GALLERY,
     ROUTER_LOGIN,
-    ROUTER_PRODUCTS, ROUTER_STATISTICS,
+    ROUTER_PRODUCTS, ROUTER_STATISTICS, ROUTER_TRANSACTIONS,
     ROUTER_USERS
 } from "./constants/routers";
 
@@ -37,6 +37,11 @@ export const DATA = {
             name: 'File-Upload',
             url: ROUTER_FILEUPLOAD,
             color: '#3498db'
+        },
+        {
+            name: 'Transactions',
+            url: ROUTER_TRANSACTIONS,
+            color: '#e0a96d'
         },
         {
             name: 'LogOut',
@@ -74,7 +79,8 @@ export const DATA = {
         {
             text: "3. Lorem ipsum bla bla bla Lorem ipsum bla bla bla Lorem ipsum bla bla bla",
         }
-    ]
+    ],
 
+    filterOptions: ['All','Today', 'Last Week', 'Two Weeks', '1 Month','2 Month']
 
 }

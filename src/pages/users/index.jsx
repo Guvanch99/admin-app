@@ -5,15 +5,13 @@ import {CustomTable, PageBack, Spinner} from "../../components";
 
 import {getUsers} from "../../redux/crudSlice";
 
-import * as S from "./styled"
-
 const Users = () => {
     const [currentPage, setCurrentPage] = useState(1)
     const dispatch = useDispatch()
 
     useEffect(() => {
         dispatch(getUsers(currentPage))
-    }, [currentPage])
+    }, [currentPage,dispatch])
 
     const {users} = useSelector(state => state.crud)
 

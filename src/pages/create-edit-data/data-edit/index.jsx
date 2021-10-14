@@ -4,18 +4,22 @@ import {useDispatch} from "react-redux";
 
 import {CustomButton, CustomInput, ModalPreview, Portal, ModalSuccess, PageBack} from "../../../components";
 
+import {updateItem} from "../../../redux/crudSlice";
+
 import {isObjectValueEmpty} from "../../../utils";
 
 import {getSingleData} from "../../../services/getSingleData";
 
 import {REGEX_NUMBER} from "../../../constants/regex";
 
+import {ROUTER_GALLERY, ROUTER_PRODUCTS} from "../../../constants/routers";
+
 import {ErrorGlobal} from "../styled";
 
 import * as S from '../styled'
-import {updateItem} from "../../../redux/crudSlice";
-import {Products} from "../../index";
-import {ROUTER_GALLERY, ROUTER_PRODUCTS, ROUTER_USERS} from "../../../constants/routers";
+
+
+
 
 const DataEdit = () => {
     const location = useLocation()
@@ -67,7 +71,8 @@ const DataEdit = () => {
         <CustomInput key={idx} bg='orangeColor'
                      label={key}
                      disabled={key === 'id'}
-                     type='text' autoComplete='off'
+                     type='text'
+                     autoComplete='off'
                      name={key}
                      value={singleData[key]}
                      placeholder={`Enter a ${key}`}

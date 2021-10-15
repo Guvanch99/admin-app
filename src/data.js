@@ -81,6 +81,6 @@ export const DATA = {
         }
     ],
 
-    filterOptions: ['All','Today', 'Last Week', 'Two Weeks', '1 Month','2 Month']
+    filterOptions: ['Today', 'Last Week', 'Two Weeks', '1 Month','2 Month','Period']
 
 }

@@ -12,4 +12,5 @@ export const TransactionText = styled.h1`
   font-size: 3em;
   margin-bottom: 3rem;
   color: ${({theme}) => theme.colors.whiteColor};
+  text-align: center;
 `

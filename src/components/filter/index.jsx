@@ -1,43 +1,148 @@
-import {memo, useEffect, useState} from "react";
-
+import {memo, useEffect, useMemo, useState} from "react";
+import moment from "moment";
 import {useSelector, useDispatch} from "react-redux";
 
 import {getOrder} from "../../redux/crudSlice";
 
-import {onChange, filterTransactions} from "../../redux/filterSlice";
+import {onChange, filterTransactions, filterRemove} from "../../redux/filterSlice";
+
+import {insertSlash} from "../../utils";
 
 import {DATA} from "../../data";
 
-import * as S from './styled'
-import {ButtonFilter, Label} from "./styled";
 import {PERIOD} from "../../constants/variables";
+
+import * as S from './styled'
 
 const {filterOptions} = DATA
 
 const Filter = () => {
     const [isVisibleFilter, setIsVisibleFilter] = useState(false)
-
+    const [inputDate, setInputDate] = useState({
+        from: '',
+        to: ''
+    })
+    const [errors, setErrors] = useState({
+        from: '',
+        to: '',
+        both: ''
+    })
+    const [tag, setTag] = useState(false)
     const {sort, filteredOrders} = useSelector(state => state.filter)
 
     const dispatch = useDispatch()
 
+    const {from, to} = inputDate
+    const {both} = errors
+
     useEffect(() => {
         dispatch(getOrder())
     }, [dispatch])
-    /* dispatch(filterTransactions())*/
-    useEffect(() => {
-        dispatch(filterTransactions())
-    }, [sort, dispatch])
+
     const updateSort = ({target: {value}}) => {
         dispatch(onChange({value}))
+        setErrors({
+            from: '',
+            to: '',
+            both: ''
+        })
+
+    }
+    const toggleVisible = () => setIsVisibleFilter(!isVisibleFilter)
+    const apply = () => {
+        setTag(true)
+        dispatch(filterTransactions({from, to}))
+    }
+    const handleChange = ({target: {value, name}}) => {
+        let slashedValue = insertSlash(value)
+        setErrors({
+            from: '',
+            to: '',
+            both: ''
+        })
+        setInputDate({...inputDate, [name]: slashedValue})
+    }
+    const filterRemoveHandler = () => {
+        setTag(false)
+        setInputDate({
+            from: '',
+            to: ''
+        })
+        dispatch(filterRemove())
+    }
+    const dateFromChecker = () => {
+        const fromDate = moment(from, "DD-MM-YYYY")
+        const today = moment()
+
+        if (!fromDate.isValid() || !(fromDate <= today)) {
+            setErrors({
+                ...errors,
+                from: "Invalid Date From "
+            })
+        }
+    }
+    const dateToChecker = () => {
+        const fromDate = moment(from, "DD-MM-YYYY")
+        const toDate = moment(to, "DD-MM-YYYY")
+        const today = moment()
+        const isAfter = moment(fromDate).isAfter(toDate);
+        const isSame = moment(fromDate).isSame(toDate)
+        if (!fromDate.isValid() || !(toDate <= today))
+            setErrors({
+                ...errors,
+                to: "Invalid Date To "
+            })
+        else if (isAfter)
+            setErrors({
+                ...errors,
+                both: "From is bigger than To"
+            })
+        else if (isSame)
+            setErrors({
+                ...errors,
+                both: "Dates are Same"
+            })
+
+    }
+    const isSortEmpty = () => {
+        if (!sort)
+            return true
+        else if (errors.from || errors.both || errors.to)
+            return true
+        else if (sort === PERIOD) {
+            if (!to || !from)
+                return true
+        }
+        return false
     }
 
-    const toggleVisible = () => setIsVisibleFilter(!isVisibleFilter)
-    console.log(sort===PERIOD)
+    const INPUT_DATA = useMemo(
+        () => [
+            {
+                name: 'from',
+                value: from,
+                label: 'From',
+                error: errors.from,
+                functionValid: dateFromChecker
+            },
+            {
+                name: 'to',
+                value: to,
+                label: 'To',
+                error: errors.to,
+                functionValid: dateToChecker
+            }
+        ],
+        [from, to, errors.form, errors.to]
+    )
+
     return (
         <S.Filter>
-            <S.Tag>
-
+            <S.Tag isVisible={tag}>
+                <S.TagButton onClick={filterRemoveHandler}>
+                    {`${sort} ${from}-${to}`}
+                    <S.IconTimes className="fas fa-times"/>
+                </S.TagButton>
             </S.Tag>
             <S.FilterDivider>
                 <div>
@@ -55,25 +160,48 @@ const Filter = () => {
                                         id={name}
                                         type='radio'
                                         onChange={updateSort}
+                                        checked={sort === name}
                                     />
-                                    <S.Label>{name}</S.Label>
+                                    <S.Label htmlFor={name}>{name}</S.Label>
                                 </S.RadioContainer>
-                                <S.HorizontalLine/>
                             </S.FilterInfoContainer>
                         ))}
                         {
                             sort === PERIOD ? (
-                                <div>
-                                    <input type='number' min={0} max={9} maxLength={9}  />
-                                    <input/>
-                                </div>
+                                <S.InputContainer>
+                                    {
+                                        INPUT_DATA.map(({name, value, label, error, functionValid}, idx) => (
+                                            <S.InputsWithDash key={idx}>
+                                                <S.InputDateContainer>
+                                                    <S.LabelInput>{label}</S.LabelInput>
+                                                    <S.InputDate name={name}
+                                                                 value={value}
+                                                                 onChange={handleChange}
+                                                                 type='text'
+                                                                 min={0}
+                                                                 max={9}
+                                                                 maxLength={10}
+                                                                 placeholder="DD/MM/YYYY"
+                                                                 onBlur={functionValid}
+                                                                 error={error || both}
+                                                    />
+                                                    {error ? <S.ErrorText>{error}</S.ErrorText> : null}
+                                                </S.InputDateContainer>
+                                                {idx === 0 ? <S.Dash/> : null}
+                                            </S.InputsWithDash>
+                                        ))
+                                    }
+
+                                </S.InputContainer>
                             ) : null
                         }
-                        <button>Apply</button>
+                        {both ? <S.ErrorText>{both}</S.ErrorText> : null}
+                        <S.ButtonApply onClick={apply} disabled={isSortEmpty()}>
+                            Apply
+                        </S.ButtonApply>
                     </S.FilterOptionContainer>
-
                 </div>
-                {filteredOrders.length > 0 ? <S.OrdersList>
+                <S.OrdersList isVisible={filteredOrders.length > 0}>
                     <S.InfoContainer>
                         <S.UserName orange>Name:</S.UserName>
                         <S.TotalAmount orange>Money:</S.TotalAmount>
@@ -88,7 +216,7 @@ const Filter = () => {
                             )
                         )
                     }
-                </S.OrdersList> : null}
+                </S.OrdersList>
             </S.FilterDivider>
         </S.Filter>
     )

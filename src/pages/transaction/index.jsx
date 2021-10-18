@@ -6,8 +6,10 @@ const Transaction = () => {
     return (
         <S.Container>
             <S.TransactionText>
-                Select Filter date
+                Select Filter date<br/>
+                Transaction will be shown if data exists
             </S.TransactionText>
+
             <Filter/>
         </S.Container>
     )

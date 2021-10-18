@@ -1,10 +1,31 @@
 import styled from "styled-components";
 
 import {flex} from "../../stories/styled";
-
+import {flexCenter} from "../../styles/flex.styled";
 
 export const Tag = styled.div`
+  opacity: ${({isVisible}) => isVisible ? 1 : 0};
+  transition: opacity .4s ease-in;
+  margin: 0.6rem 0;
+`
 
+export const TagButton = styled.button`
+  padding: 0.4rem;
+  background: ${({theme}) => theme.colors.secondaryColor};
+  border: 1px solid ${({theme}) => theme.colors.blueColor};
+  color: ${({theme}) => theme.colors.whiteColor};
+  border-radius: 5%;
+  cursor: pointer;
+
+  &:hover {
+    background: ${({theme}) => theme.colors.orangeColor};
+    color: ${({theme}) => theme.colors.secondaryColor};
+  }
+`
+
+export const IconTimes = styled.i`
+  padding: 0.2rem;
+  margin-left: 0.4rem;
 `
 
 export const Filter = styled.div`
@@ -30,13 +51,13 @@ export const ButtonFilter = styled.button`
 `
 
 export const FilterOptionContainer = styled.div`
-  margin-top: .1rem;
+  margin-top: .2rem;
   opacity: ${({isVisible}) => isVisible ? 1 : 0};
   ${flex({justify: 'space-evenly', align: 'center'})};
   flex-direction: column;
   border: 2px solid ${({theme}) => theme.colors.blueColor};
-  color: ${({theme})=>theme.colors.whiteColor};
-  height: 20rem;
+  color: ${({theme}) => theme.colors.whiteColor};
+  height: 25rem;
   width: 20rem;
   border-radius: 3%;
   transition: opacity .4s ease-in;
@@ -44,25 +65,25 @@ export const FilterOptionContainer = styled.div`
 
 export const FilterInfoContainer = styled.div`
   width: 100vw;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  ${flexCenter};
 `
 
 export const RadioContainer = styled.div`
   width: 18rem;
   height: 2rem;
   ${flex({justify: 'flex-start', align: 'center'})};
+
+  &:hover {
+    background: ${({theme}) => theme.colors.orangeColor};
+    padding: 0 .4rem;
+    border-radius: 2rem;
+  }
 `
 
 export const Label = styled.label`
   font-size: 1rem;
   margin-left: .4rem;
-`
-
-export const HorizontalLine = styled.hr`
-  margin-top: .2rem;
-  color: ${({theme}) => theme.colors.lighterBlackColor};
+  width: 100%;
 `
 
 export const Icon = styled.i`
@@ -72,16 +93,17 @@ export const Icon = styled.i`
 export const OrdersList = styled.ul`
   color: ${({theme}) => theme.colors.whiteColor};
   margin-top: 2rem;
+  opacity: ${({isVisible}) => isVisible ? 1 : 0};
+  transition: opacity .4s ease-in;
 `
 
-
 export const UserName = styled.h1`
-  color:${({orange,theme})=>orange?theme.colors.orangeColor:theme.colors.whiteColor};
+  color: ${({orange, theme}) => orange ? theme.colors.orangeColor : theme.colors.whiteColor};
   font-size: 1.6em;
 `
 
 export const TotalAmount = styled.h2`
-  color:${({orange,theme})=>orange?theme.colors.orangeColor:theme.colors.whiteColor};
+  color: ${({orange, theme}) => orange ? theme.colors.orangeColor : theme.colors.whiteColor};
   font-size: 1.4em;
 `
 
@@ -89,4 +111,74 @@ export const InfoContainer = styled.div`
   ${flex({justify: 'space-around', align: 'start'})};
   width: 10rem;
   margin: .4rem;
+`
+
+export const InputContainer = styled.div`
+  ${flex({justify: 'space-around', align: 'center'})};
+`
+
+export const Dash = styled.div`
+  width: 2rem;
+  height: 0;
+  border: 1px solid ${({theme}) => theme.colors.secondaryColor};
+  display: inline-block;
+  margin: 1.5rem .8rem 0 .8rem;
+  opacity: .7;
+
+`
+
+export const InputsWithDash = styled.div`
+  ${flexCenter};
+`
+
+export const InputDateContainer = styled.div`
+  ${flexCenter};
+  flex-direction: column;
+
+`
+
+export const LabelInput = styled.label`
+  margin-bottom: .4rem;
+  align-self: start;
+  font-size: 1.4em;
+`
+
+export const InputDate = styled.input`
+  width: 6rem;
+  height: 2rem;
+  border: none;
+  border-radius: .6rem;
+  padding: 0 .4rem;
+  border: ${({error, theme}) => error ? `1px solid ${theme.colors.lighterRedColor}` : null};
+
+  &:focus {
+    outline: none;
+    border: 2px solid ${({theme}) => theme.colors.greenSuccessColor};
+  }
+`
+
+export const ButtonApply = styled.button`
+  align-self: end;
+  margin: 2rem 1rem .4rem 0;
+  padding: .8rem 1rem;
+  border: none;
+  border-radius: 10%;
+  background: ${({theme}) => theme.colors.secondaryColor};
+  color: ${({theme}) => theme.colors.whiteColor};
+  cursor: pointer;
+
+  &:disabled {
+    background: ${({theme}) => theme.colors.lighterRedColor};
+    cursor: auto;
+  }
+
+  &:hover {
+    transform: scale(1.1);
+  }
+`
+
+export const ErrorText = styled.p`
+  color: ${({theme}) => theme.colors.lighterRedColor};
+  font-size: 1em;
+  margin-bottom: -.64rem;
 `

@@ -2,6 +2,7 @@ import {
     FIRST_SEGMENT_OFF_SET,
     HUNDRED_PERCENT,
 } from "../constants/variables";
+import {REGEX_AFTER_DAY_SLASH, REGEX_AFTER_MONTH_SLASH} from "../constants/regex";
 
 export const upperCaseString = str => str.trim().toUpperCase()
 
@@ -9,7 +10,10 @@ export const isObjectEmpty = obj => Object.keys(obj).length === 0;
 
 export const isObjectValueEmpty = obj => Object.values(obj).some(x => x === '');
 
-export const biteToMb = (number) => (number / Math.pow(1024, 2)).toFixed(2)
+export const biteToMb = number => (number / Math.pow(1024, 2)).toFixed(2)
+
+
+export const insertSlash = data => data.replace(REGEX_AFTER_DAY_SLASH, '$1/$2').replace(REGEX_AFTER_MONTH_SLASH, '$1/$2')
 
 export const getTotals = (orders) => {
     //taking all carts from orders and flatting array and get all types from array after with Set get unique values

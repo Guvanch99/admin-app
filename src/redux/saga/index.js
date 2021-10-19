@@ -3,7 +3,6 @@ import {takeLatest, all, call} from 'redux-saga/effects'
 import {handleData, handleDelete, handleOrders, handleProducts, handleUpdate, handleUsers} from "./worker";
 import {deleteItem, getData, getOrder, getProducts, getUsers, updateItem} from "../crudSlice";
 
-//watching action dispatch
  function* watcherGetData() {
     yield takeLatest(getData.type, handleData)
 }

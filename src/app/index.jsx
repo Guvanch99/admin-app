@@ -12,7 +12,8 @@ import {
     DataEdit,
     Statistics,
     DataAdd,
-    FileUpload
+    FileUpload,
+    Transaction
 } from '../pages'
 
 import {PrivateRoute} from "../components"
@@ -28,7 +29,8 @@ import {
     ROUTER_DATA_EDIT,
     ROUTER_STATISTICS,
     ROUTER_DATA_ADD,
-    ROUTER_FILEUPLOAD
+    ROUTER_FILEUPLOAD,
+    ROUTER_TRANSACTIONS
 } from "../constants/routers";
 
 import {theme} from "../styles/Theme.styled";
@@ -66,12 +68,16 @@ const privateRoutes = [
         children: <DataAdd/>
     },
     {
-        path:ROUTER_STATISTICS,
+        path: ROUTER_STATISTICS,
         children: <Statistics/>
     },
     {
-        path:ROUTER_FILEUPLOAD,
-        children:<FileUpload/>
+        path: ROUTER_FILEUPLOAD,
+        children: <FileUpload/>
+    },
+    {
+        path: ROUTER_TRANSACTIONS,
+        children: <Transaction/>
     }
 
 ]

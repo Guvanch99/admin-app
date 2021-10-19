@@ -15,7 +15,7 @@ const Products = () => {
 
     useEffect(() => {
         dispatch(getProducts(currentPage))
-    }, [currentPage])
+    }, [currentPage, dispatch])
 
     return (
         <>

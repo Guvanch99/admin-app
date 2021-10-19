@@ -60,8 +60,7 @@ const Login = () => {
         [adminName, password, errors.adminName, errors.password]
     )
 
-    const handleChange = event => {
-        const {value, name} = event.target
+    const handleChange = ({target:{value,name}}) => {
         errors[name] && setErrors({...errors, [name]: ''})
         setAdminLogin({...adminLogin, [name]: value})
     }
